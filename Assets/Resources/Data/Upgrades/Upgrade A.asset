@@ -15,14 +15,14 @@ MonoBehaviour:
   id: eddc4f2f-e54d-4c27-a6c1-872de0f6e3e9
   statType: 0
   label: Upgrade A
-  description: Lorem ipsum
+  description: Increase money per coin
   costsCurrencyType: 0
-  costs: 32000000
+  costs: 0a000000
   modifierType: 0
   values:
-  - 1
-  maxLevel: 1
+  - 100
+  maxLevel: 0
   unlockAtParentLevel: 1
-  isInfinite: 0
-  costIncreaseMultiplier: 1
+  isInfinite: 1
+  costIncreaseMultiplier: 2
   parent: {fileID: 11400000, guid: 4398c998b1f74dc489505523a53df258, type: 2}
