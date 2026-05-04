@@ -1,8 +1,5 @@
-namespace Dev4All.CodeSnippets.LootIdle
+public enum AudioType
 {
-    public enum AudioType
-    {
-        BGM,
-        SFX
-    }
+    BGM,
+    SFX
 }

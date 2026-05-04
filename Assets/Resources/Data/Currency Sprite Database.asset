@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ded9a2290e54d746b675ab3356f5903, type: 3}
+  m_Name: Currency Sprite Database
+  m_EditorClassIdentifier: Assembly-CSharp::CurrencySpriteDatabase
+  entries:
+  - currencyType: 0
+    sprite: {fileID: -8921012904451574344, guid: cc8502d09121aef4a82fc1385b2e1500, type: 3}
