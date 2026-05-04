@@ -34,7 +34,7 @@ public class SaveManager : MonoBehaviour
         savePath = Application.persistentDataPath + "/upgrade-tree-save.json";
 
         allUpgrades = new List<UpgradeData>();
-        UpgradeData[] upgrades = Resources.LoadAll<UpgradeData>("Data/");
+        UpgradeData[] upgrades = Resources.LoadAll<UpgradeData>("Data/Upgrades/");
         foreach (UpgradeData upgrade in upgrades)
         {
             allUpgrades.Add(upgrade);
@@ -63,11 +63,6 @@ public class SaveManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Application.Quit();
-        }
-
         if (Input.GetKeyDown(KeyCode.R))
         {
             ResetPlayerData();
@@ -140,6 +135,8 @@ public class SaveManager : MonoBehaviour
         }
         playerData.ownedUpgrades = ownedUpgrades;
 
+        AddUpgradeData(playerData);
+
         return playerData;
     }
 
@@ -150,6 +147,8 @@ public class SaveManager : MonoBehaviour
             string json = File.ReadAllText(savePath);
 
             PlayerData data = JsonUtility.FromJson<PlayerData>(json);
+
+            if (data == null) return null;
 
             AddUpgradeData(data);
 

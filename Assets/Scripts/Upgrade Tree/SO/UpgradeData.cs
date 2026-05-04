@@ -18,7 +18,7 @@ public class UpgradeData : ScriptableObject
     public int[] costs;
     public ModifierType modifierType;
     public float[] values;
-    public int maxLevel = 10;
+    public int maxLevel = 0;
     public int unlockAtParentLevel = 1;
     public bool isInfinite = false; // will use the first cost and value for calculations
     public float costIncreaseMultiplier = 1f;
@@ -31,6 +31,16 @@ public class UpgradeData : ScriptableObject
         {
             id = System.Guid.NewGuid().ToString();
             EditorUtility.SetDirty(this);
+        }        
+
+        if ((costs.Length > 0 || values.Length > 0) && costs.Length != values.Length)
+        {
+            Debug.LogError($"Costs and Values should have same amount of elements");
+        }
+
+        if ((costs.Length > 0 || values.Length > 0) && (maxLevel != costs.Length || maxLevel != values.Length))
+        {
+            Debug.LogError($"Max Level should be {values.Length}");
         }
     }
 #endif

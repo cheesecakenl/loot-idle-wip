@@ -56,7 +56,12 @@ public class GameplayManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
-            SceneManager.LoadScene("LootIdle");
+            SceneManager.LoadScene("Gameplay");
+        }
+
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            SceneManager.LoadScene("UpgradeTree");
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))

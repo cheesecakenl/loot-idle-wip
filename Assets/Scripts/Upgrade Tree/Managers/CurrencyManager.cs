@@ -64,6 +64,11 @@ public class CurrencyManager : MonoBehaviour
             return false;
         }
 
+        if (ownedUpgrade.currentLevel == ownedUpgrade.MaxLevel)
+        {
+            return false;
+        }
+
         CurrencyType currencyType = ownedUpgrade.CostsCurrencyType;
         Currency ownedCurrency = SaveManager.instance.PlayerData.GetCurrency(currencyType);
 

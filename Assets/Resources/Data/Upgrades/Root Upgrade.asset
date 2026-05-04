@@ -14,15 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
   id: 5a19d47d-d8ea-4ce9-b9af-4929e24ffb72
   statType: 2
-  label: Moar gold
-  description: Some more gold
+  label: Root
+  description: Start here
   costsCurrencyType: 0
-  costs: 02000000
+  costs: 00000000
   modifierType: 0
   values:
-  - 1
-  maxLevel: 3
-  unlockAtParentLevel: 1
+  - 0
+  maxLevel: 1
+  unlockAtParentLevel: 0
   isInfinite: 0
   costIncreaseMultiplier: 1
   parent: {fileID: 0}

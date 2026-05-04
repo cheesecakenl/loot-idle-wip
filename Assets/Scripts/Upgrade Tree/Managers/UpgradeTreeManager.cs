@@ -40,6 +40,16 @@ public class UpgradeTreeManager : MonoBehaviour
         {
             SceneManager.LoadScene("Gameplay");
         }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene("UpgradeTree");
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 
     private void HandleOnUpgradeClicked(string ID)
