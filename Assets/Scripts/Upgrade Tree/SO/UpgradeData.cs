@@ -35,12 +35,12 @@ public class UpgradeData : ScriptableObject
 
         if ((costs.Length > 0 || values.Length > 0) && costs.Length != values.Length)
         {
-            Debug.LogError($"Costs and Values should have same amount of elements");
+            //Debug.LogError($"Costs and Values should have same amount of elements");
         }
 
         if ((costs.Length > 0 || values.Length > 0) && (maxLevel != costs.Length || maxLevel != values.Length))
         {
-            Debug.LogError($"Max Level should be {values.Length}");
+            //Debug.LogError($"Max Level should be {values.Length}");
         }
     }
 #endif

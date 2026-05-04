@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Upgrade A
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
   id: eddc4f2f-e54d-4c27-a6c1-872de0f6e3e9
-  statType: 1
+  statType: 0
   label: Upgrade A
   description: Lorem ipsum
   costsCurrencyType: 0

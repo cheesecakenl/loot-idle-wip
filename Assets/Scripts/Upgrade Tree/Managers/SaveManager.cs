@@ -61,15 +61,26 @@ public class SaveManager : MonoBehaviour
         }
     }
 
-    void Update()
+    public void ResetPlayerData()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        ResetPlayerUpgrades();
+
+        ResetPlayerCurrencies();
+
+        Save();
+
+        GameEvents.Player.OnDataReset?.Invoke();
+    }
+
+    private void ResetPlayerUpgrades()
+    {
+        foreach (OwnedUpgrade upgrade in playerData.ownedUpgrades)
         {
-            ResetPlayerData();
+            upgrade.currentLevel = 0;
         }
     }
 
-    private void ResetPlayerData()
+    private void ResetPlayerCurrencies()
     {
         foreach (Currency currency in playerData.ownedCurrencies)
         {
@@ -82,15 +93,6 @@ public class SaveManager : MonoBehaviour
                 currency.amount = 0f;
             }
         }
-
-        foreach (OwnedUpgrade upgrade in playerData.ownedUpgrades)
-        {
-            upgrade.currentLevel = 0;
-        }
-
-        Save();
-
-        GameEvents.Player.OnDataReset?.Invoke();
     }
 
     private void AddUpgradeData(PlayerData data)
@@ -112,7 +114,7 @@ public class SaveManager : MonoBehaviour
         string json = JsonUtility.ToJson(playerData, true);
         File.WriteAllText(savePath, json);
 
-        Debug.Log("Saved to: " + savePath);
+        //Debug.Log("Saved to: " + savePath);
     }
 
     private PlayerData CreatePlayerData()
@@ -152,7 +154,7 @@ public class SaveManager : MonoBehaviour
 
             AddUpgradeData(data);
 
-            Debug.Log("Loaded from: " + savePath);
+            //Debug.Log("Loaded from: " + savePath);
 
             return data;
         }

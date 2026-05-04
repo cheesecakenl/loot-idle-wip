@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Root Upgrade
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
   id: 5a19d47d-d8ea-4ce9-b9af-4929e24ffb72
-  statType: 2
+  statType: 0
   label: Root
   description: Start here
   costsCurrencyType: 0

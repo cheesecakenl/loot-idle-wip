@@ -64,7 +64,7 @@ public class CurrencyManager : MonoBehaviour
             return false;
         }
 
-        if (ownedUpgrade.currentLevel == ownedUpgrade.MaxLevel)
+        if (!ownedUpgrade.IsInfinite && ownedUpgrade.currentLevel == ownedUpgrade.MaxLevel)
         {
             return false;
         }

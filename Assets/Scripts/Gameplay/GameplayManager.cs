@@ -50,6 +50,16 @@ public class GameplayManager : MonoBehaviour
 
         AudioManager.instance.ChangeBgmVolume(0.1f);
         AudioManager.instance.PlayMusic(AudioType.BGM, "gameplay");
+
+        Currency gold = SaveManager.instance.PlayerData.GetCurrency(CurrencyType.GOLD);
+
+        if (gold != null)
+        {
+            int goldRounded = Mathf.RoundToInt(gold.amount);
+            totalMoney = goldRounded;
+
+            Debug.Log($"Currently you have {goldRounded} gold");
+        }
     }
 
     void Update()
@@ -62,6 +72,11 @@ public class GameplayManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.T))
         {
             SceneManager.LoadScene("UpgradeTree");
+        }
+
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            SaveManager.instance.ResetPlayerData();
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
