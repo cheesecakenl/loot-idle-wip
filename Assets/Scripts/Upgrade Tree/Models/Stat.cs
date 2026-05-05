@@ -4,15 +4,15 @@ public class Stat
 {
     public StatType type;
     public string label;
-    public float baseValue;
+    public double baseValue;
 
-    private float flatSum;
-    private float percentSum;
-    private float multiplierProduct = 1f;
+    private double flatSum;
+    private double percentSum;
+    private double multiplierProduct = 1;
 
-    List<OwnedUpgrade> modifiers = new List<OwnedUpgrade>();
+    List<UpgradeInstance> modifiers = new List<UpgradeInstance>();
 
-    public void AddModifier(OwnedUpgrade mod)
+    public void AddModifier(UpgradeInstance mod)
     {
         bool modifierExists = ModifierExists(mod);
         if (modifierExists)
@@ -23,11 +23,11 @@ public class Stat
         modifiers.Add(mod);
     }
 
-    private bool ModifierExists(OwnedUpgrade mod)
+    private bool ModifierExists(UpgradeInstance mod)
     {
-        foreach (OwnedUpgrade modifier in modifiers)
+        foreach (UpgradeInstance modifier in modifiers)
         {
-            if (modifier.ID == mod.ID)
+            if (modifier.data.label == mod.data.label)
             {
                 return true;
             }
@@ -38,20 +38,20 @@ public class Stat
 
     private void Calculate()
     {
-        foreach (OwnedUpgrade mod in modifiers)
+        foreach (UpgradeInstance mod in modifiers)
         {
-            if (mod.ModifierType == ModifierType.FLAT)
+            if (mod.data.modifierType == ModifierType.FLAT)
                 flatSum += mod.GetValue();
 
-            else if (mod.ModifierType == ModifierType.PERCENTAGE)
+            else if (mod.data.modifierType == ModifierType.PERCENTAGE)
                 percentSum += mod.GetValue() / 100;
 
-            else if (mod.ModifierType == ModifierType.MULTIPLIER)
+            else if (mod.data.modifierType == ModifierType.MULTIPLIER)
                 multiplierProduct *= mod.GetValue();
         }
     }
 
-    public float GetValue()
+    public double GetValue()
     {
         flatSum = 0f;
         percentSum = 0f;

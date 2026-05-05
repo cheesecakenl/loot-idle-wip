@@ -47,25 +47,20 @@ public class StatsManager : MonoBehaviour
 
     private void AddModifiersToStats()
     {
-        if (SaveManager.instance.PlayerData == null)
-        {
-            return;
-        }
-
-        List<OwnedUpgrade> upgrades = SaveManager.instance.PlayerData.ownedUpgrades;
+        if (UpgradesManager.instance == null) return;
 
         foreach (Stat stat in allStats)
         {
-            foreach (OwnedUpgrade ownedUpgrade in upgrades)
+            foreach (UpgradeInstance upgradeInstance in UpgradesManager.instance.upgradeInstances)
             {
-                if (ownedUpgrade.currentLevel < 1)
+                if (upgradeInstance.level < 1)
                 {
                     continue;
                 }
 
-                if (stat.type == ownedUpgrade.StatType)
+                if (stat.type == upgradeInstance.data.statType)
                 {
-                    stat.AddModifier(ownedUpgrade);
+                    stat.AddModifier(upgradeInstance);
                 }
             }
         }

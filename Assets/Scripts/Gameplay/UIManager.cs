@@ -33,8 +33,9 @@ public class UIManager : MonoBehaviour
         GameplayManager.OnUpdateMoneyUI -= HandleOnUpdateMoneyUI;
     }
 
-    private void HandleOnUpdateMoneyUI(int totalMoney)
+    private void HandleOnUpdateMoneyUI(double totalMoney)
     {
-        moneyText.text = totalMoney.ToString();
+        string formattedMoney = PlayerManager.instance.GetFormattedMoney();
+        moneyText.text = formattedMoney;
     }
 }

@@ -52,29 +52,22 @@ public class UpgradeTreeManager : MonoBehaviour
         }
     }
 
-    private void HandleOnUpgradeClicked(string ID)
+    private void HandleOnUpgradeClicked(string label)
     {
-        if (SaveManager.instance.PlayerData == null)
-        {
-            return;
-        }
+        if (label == null || label.Length < 1) return;
 
-        OwnedUpgrade ownedUpgrade = SaveManager.instance.PlayerData.GetOwnedUpgrade(ID);
-        if (ownedUpgrade == null)
-        {
-            return;
-        }
+        UpgradeInstance upgradeInstance = UpgradesManager.instance.GetUpgradeInstance(label);
+
+        if (upgradeInstance == null) return;
 
         // Buy upgrade
-        bool buyUpgrade = CurrencyManager.instance.BuyUpgrade(ownedUpgrade);
+        bool buyUpgrade = CurrencyManager.instance.BuyUpgrade(upgradeInstance);
         if (!buyUpgrade)
         {
             return;
         }
 
-        ownedUpgrade.LevelUp();
-
-        SaveManager.instance.Save();
+        upgradeInstance.LevelUp();
 
         UpgradeTreeUIManager.instance.CheckUnlocks();
     }

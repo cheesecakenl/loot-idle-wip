@@ -23,15 +23,13 @@ public class UpgradeNode : MonoBehaviour, IPointerExitHandler
     {
         if (Input.GetMouseButtonDown(0))
         {
-            GameEvents.UI.OnUpgradeClicked?.Invoke(data.ID);
+            GameEvents.UI.OnUpgradeClicked?.Invoke(data.label);
         }
 
-        if (SaveManager.instance.PlayerData == null)
-        {
-            return;
-        }
+        UpgradeInstance upgradeInstance = UpgradesManager.instance.GetUpgradeInstance(data.label);
 
-        OwnedUpgrade ownedUpgrade = SaveManager.instance.PlayerData.GetOwnedUpgrade(data.ID);
-        UpgradeTreeUIManager.instance.ShowTooltip(ownedUpgrade, transform.position);
+        if (upgradeInstance == null) return;
+
+        UpgradeTreeUIManager.instance.ShowTooltip(upgradeInstance, transform.position);
     }
 }

@@ -43,69 +43,53 @@ public class CurrencyManager : MonoBehaviour
 
     private void UpdateCurrencyUI()
     {
-        if (SaveManager.instance.PlayerData == null)
-        {
-            return;
-        }
-
-        Currency gold = SaveManager.instance.PlayerData.GetCurrency(CurrencyType.GOLD);
-
-        if (gold != null)
-        {
-            int goldRounded = Mathf.RoundToInt(gold.amount);
-            goldAmountTextField.text = goldRounded.ToString();
-        }
+        string formattedMoney = PlayerManager.instance.GetFormattedMoney();
+        goldAmountTextField.text = formattedMoney;
     }
 
-    public bool BuyUpgrade(OwnedUpgrade ownedUpgrade)
+    public bool BuyUpgrade(UpgradeInstance upgradeInstance)
     {
-        if (ownedUpgrade == null)
+        if (upgradeInstance == null)
         {
             return false;
         }
 
-        if (!ownedUpgrade.IsInfinite && ownedUpgrade.currentLevel == ownedUpgrade.MaxLevel)
+        if (!upgradeInstance.data.isInfinite && upgradeInstance.level == upgradeInstance.data.maxLevel)
         {
             return false;
         }
 
-        CurrencyType currencyType = ownedUpgrade.CostsCurrencyType;
-        Currency ownedCurrency = SaveManager.instance.PlayerData.GetCurrency(currencyType);
-
-        if (ownedCurrency == null)
+        double money = PlayerManager.instance.money;
+        if (money <= 0)
         {
             return false;
         }
 
-        float costs = ownedUpgrade.GetCost();
-
-        if (ownedCurrency.amount < costs)
+        double costs = upgradeInstance.GetCost();
+        if (money < costs)
         {
             return false;
         }
 
-        ownedCurrency.amount -= costs;
+        PlayerManager.instance.Pay(costs);
 
         UpdateCurrencyUI();
 
         return true;
     }
 
-    public bool CanBuyUpgrade(OwnedUpgrade ownedUpgrade)
+    public bool CanBuyUpgrade(UpgradeInstance upgradeInstance)
     {
-        if (ownedUpgrade == null) return false;
+        if (upgradeInstance == null) return false;
 
-        CurrencyType currencyType = ownedUpgrade.CostsCurrencyType;
-        Currency ownedCurrency = SaveManager.instance.PlayerData.GetCurrency(currencyType);
-
-        if (ownedCurrency == null)
+        double money = PlayerManager.instance.money;
+        if (money <= 0)
         {
             return false;
         }
 
-        float costs = ownedUpgrade.GetCost();
-
-        if (ownedCurrency.amount >= costs)
+        double costs = upgradeInstance.GetCost();
+        if (money >= costs)
         {
             return true;
         }

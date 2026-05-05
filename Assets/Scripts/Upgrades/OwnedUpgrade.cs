@@ -33,20 +33,17 @@ public class OwnedUpgrade
 
     public bool IsMaxLevel => data.isInfinite ? false : currentLevel >= data.maxLevel;
 
-    public int GetCost()
+    public double GetCost()
     {
         if (data.isInfinite)
         {
-            float cost = data.costs[0] * Mathf.Pow(data.costIncreaseMultiplier, currentLevel);
-            int rounded = Mathf.RoundToInt(cost);
-
-            return rounded;
+            return data.costs[0] * Mathf.Pow(data.costIncreaseMultiplier, currentLevel);
         }
 
         return data.costs[IsMaxLevel ? currentLevel - 1 : currentLevel];
     }
 
-    public float GetValue()
+    public double GetValue()
     {
         if (data.isInfinite)
         {
@@ -61,7 +58,7 @@ public class OwnedUpgrade
         return data.values[currentLevel - 1];
     }
 
-    public float GetNextValue()
+    public double GetNextValue()
     {
         if (data.isInfinite)
         {

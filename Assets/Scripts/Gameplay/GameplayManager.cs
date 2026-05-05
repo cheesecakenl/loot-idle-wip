@@ -6,14 +6,14 @@ public class GameplayManager : MonoBehaviour
 {
     public static GameplayManager instance = null;
 
-    public static event Action<int> OnUpdateMoneyUI;
+    public static event Action<double> OnUpdateMoneyUI;
 
     [SerializeField] private Texture2D mouseTexture;
     [SerializeField] private GameObject chestPrefab;
 
-    private int totalMoney;
+    private double totalMoney;
 
-    public int Money => totalMoney;
+    public double Money => totalMoney;
 
     private Vector2 clickHotspot;
 
@@ -51,15 +51,11 @@ public class GameplayManager : MonoBehaviour
         AudioManager.instance.ChangeBgmVolume(0.1f);
         AudioManager.instance.PlayMusic(AudioType.BGM, "gameplay");
 
-        Currency gold = SaveManager.instance.PlayerData.GetCurrency(CurrencyType.GOLD);
+        double money = PlayerManager.instance.money;
 
-        if (gold != null)
-        {
-            int goldRounded = Mathf.RoundToInt(gold.amount);
-            totalMoney = goldRounded;
+        totalMoney = money;
 
-            Debug.Log($"Currently you have {goldRounded} gold");
-        }
+        Debug.Log($"Currently you have {money} money");
     }
 
     void Update()
@@ -72,11 +68,6 @@ public class GameplayManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.T))
         {
             SceneManager.LoadScene("UpgradeTree");
-        }
-
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            SaveManager.instance.ResetPlayerData();
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -98,7 +89,7 @@ public class GameplayManager : MonoBehaviour
         GameObject clone = Instantiate(chestPrefab, mousePos, Quaternion.identity);
     }
 
-    private void HandleOnCoinPickup(int amount)
+    private void HandleOnCoinPickup(double amount)
     {
         totalMoney += amount;
 

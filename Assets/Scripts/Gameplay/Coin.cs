@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
-    public static event Action<int> OnCoinPickup;
+    public static event Action<double> OnCoinPickup;
 
     [SerializeField] private GameObject popupAmountPrefab;
-    [SerializeField] private int value = 0;
+    [SerializeField] private double value = 0;
 
     private bool isDead = false;
 
@@ -16,9 +16,8 @@ public class Coin : MonoBehaviour
         if (StatsManager.instance != null)
         {
             Stat goldIncome = StatsManager.instance.GetStat(StatType.GOLD_INCOME);
-            int goldIncomeRounded = Mathf.RoundToInt(goldIncome.GetValue());
 
-            value = goldIncomeRounded;
+            value = goldIncome.GetValue();
         }
     }
 
