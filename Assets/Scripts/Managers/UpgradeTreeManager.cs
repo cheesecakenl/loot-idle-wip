@@ -70,5 +70,7 @@ public class UpgradeTreeManager : MonoBehaviour
         upgradeInstance.LevelUp();
 
         UpgradeTreeUIManager.instance.CheckUnlocks();
+
+        PlayerManager.instance.Save();
     }
 }

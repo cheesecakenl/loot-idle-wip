@@ -167,6 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Dev4All.CodeSnippets.LootIdle.Coin
   popupAmountPrefab: {fileID: 6258809543794052064, guid: e4bcc48ccf558c3438e76d073271ef2e, type: 3}
+  value: 10
 --- !u!50 &-2100751630247861706
 Rigidbody2D:
   serializedVersion: 5

@@ -24,7 +24,7 @@ public class PlayerManager : MonoBehaviour
 
     private void Init()
     {
-        money = 5000;
+        money = 125000;
 
         SaveData saveData = SaveManager.Load();
 
@@ -77,7 +77,7 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    private void Save()
+    public void Save()
     {
         SaveData saveData = new();
         saveData.money = money;

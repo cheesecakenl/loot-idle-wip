@@ -17,7 +17,7 @@ public class Coin : MonoBehaviour
         {
             Stat goldIncome = StatsManager.instance.GetStat(StatType.GOLD_INCOME);
 
-            value = goldIncome.GetValue();
+            value += goldIncome.GetValue();
         }
     }
 
