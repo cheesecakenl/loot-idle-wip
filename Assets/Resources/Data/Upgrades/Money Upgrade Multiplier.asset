@@ -10,23 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8acbb037cd905cf4089760493324f421, type: 3}
-  m_Name: Money Upgrade 1
+  m_Name: Money Upgrade Multiplier
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
   statType: 0
-  label: Money Upgrade 1
-  description: Increase money
+  label: Money Upgrade Multiplier
+  description: Money multiplier
   costsCurrencyType: 0
   costs:
-  - 10
-  - 100
-  - 1000
-  modifierType: 0
-  values:
-  - 5
-  - 50
   - 500
+  - 5000
+  - 50000
+  modifierType: 2
+  values:
+  - 2
+  - 4
+  - 8
   maxLevel: 3
   unlockAtParentLevel: 1
   isInfinite: 0
   costIncreaseMultiplier: 1
-  parent: {fileID: 11400000, guid: 4398c998b1f74dc489505523a53df258, type: 2}
+  parent: {fileID: 11400000, guid: 9623e6cff466b12488bddd2ab6a4b293, type: 2}

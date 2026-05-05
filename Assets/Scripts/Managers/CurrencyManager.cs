@@ -27,13 +27,11 @@ public class CurrencyManager : MonoBehaviour
     void OnEnable()
     {
         GameEvents.Player.OnDataReset += HandleOnPlayerDataReset;
-        GameEvents.Player.OnClickedEnemy += HandleOnClickedEnemy;
     }
 
     void OnDisable()
     {
         GameEvents.Player.OnDataReset -= HandleOnPlayerDataReset;
-        GameEvents.Player.OnClickedEnemy -= HandleOnClickedEnemy;
     }
 
     void Start()

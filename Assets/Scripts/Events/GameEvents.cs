@@ -10,7 +10,6 @@ public static class GameEvents
     public static class Player
     {
         public static Action OnDataReset;
-        public static Action OnClickedEnemy;
     }
 
     public static class UI
