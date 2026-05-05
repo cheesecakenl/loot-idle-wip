@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Chest : MonoBehaviour, IClickable
 {
-    [SerializeField] private GameObject coinPrefab;
-    [SerializeField] private GameObject moneyPrefab;
+    [SerializeField] private GameObject bronzePrefab;
+    [SerializeField] private GameObject silverPrefab;
+    [SerializeField] private GameObject goldPrefab;
+
     [SerializeField] private int hitPoints = 3;
     [SerializeField] private float animationShakeDuration = 0.3f;
     [SerializeField] private float animationShakeStrength = 0.2f;
@@ -90,15 +92,23 @@ public class Chest : MonoBehaviour, IClickable
 
         for (int i = 0; i < amount; i++)
         {
-            GameObject clone = Instantiate(coinPrefab, position, Quaternion.identity);
+            GameObject clone = Instantiate(bronzePrefab, position, Quaternion.identity);
             clone.GetComponent<CoinPhysics>().Launch();
         }
 
-        int amountMoney = Random.Range(1, 6);
+        amount = Random.Range(1, 6);
 
-        for (int i = 0; i < amountMoney; i++)
+        for (int i = 0; i < amount; i++)
         {
-            GameObject clone = Instantiate(moneyPrefab, position, Quaternion.identity);
+            GameObject clone = Instantiate(silverPrefab, position, Quaternion.identity);
+            clone.GetComponent<CoinPhysics>().Launch();
+        }
+
+        amount = Random.Range(1, 6);
+
+        for (int i = 0; i < amount; i++)
+        {
+            GameObject clone = Instantiate(goldPrefab, position, Quaternion.identity);
             clone.GetComponent<CoinPhysics>().Launch();
         }
     }

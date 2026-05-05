@@ -85,6 +85,14 @@ public class AudioManager : MonoBehaviour
         audioSourceSFX.PlayOneShot(clip);
     }
 
+    public void PlayFX(AudioClip clip)
+    {
+        if (clip == null) return;
+
+        audioSourceSFX.pitch = Random.Range(0.95f, 1.05f);
+        audioSourceSFX.PlayOneShot(clip);
+    }
+
     public void StopMusic()
     {
         if (audioSourceBGM.isPlaying)

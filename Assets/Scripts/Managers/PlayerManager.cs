@@ -24,7 +24,7 @@ public class PlayerManager : MonoBehaviour
 
     private void Init()
     {
-        money = 125000;
+        money = 50000;
 
         SaveData saveData = SaveManager.Load();
 
@@ -56,7 +56,7 @@ public class PlayerManager : MonoBehaviour
             return money.ToString("0.000e+0");
         }
 
-        return tempMoney.ToString("0.000") + suffixes[suffixIndex];
+        return tempMoney.ToString("0.##") + suffixes[suffixIndex];
     }
 
     public void Pay(double amount)

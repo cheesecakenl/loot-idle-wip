@@ -7,7 +7,9 @@ public class Coin : MonoBehaviour
     public static event Action<double> OnCoinPickup;
 
     [SerializeField] private GameObject popupAmountPrefab;
-    [SerializeField] private double value = 0;
+    [SerializeField] private StatType scalesWithStat;
+    [SerializeField] private double baseValue = 0;
+    [SerializeField] private AudioClip pickupSfx;
 
     private bool isDead = false;
 
@@ -15,16 +17,14 @@ public class Coin : MonoBehaviour
     {
         if (StatsManager.instance != null)
         {
-            Stat goldIncome = StatsManager.instance.GetStat(StatType.GOLD_INCOME);
+            Stat stat = StatsManager.instance.GetStat(scalesWithStat);
 
-            value += goldIncome.GetValue();
+            baseValue += stat.GetValue();
         }
     }
 
     void OnMouseOver()
     {
-        //Debug.Log($"OnMouseOver {gameObject.name}");
-
         if (isDead) return;
 
         isDead = true;
@@ -33,14 +33,14 @@ public class Coin : MonoBehaviour
 
         ShowAmountPopup();
 
-        OnCoinPickup?.Invoke(value);
+        OnCoinPickup?.Invoke(baseValue);
 
         Destroy(gameObject);
     }
 
     void PlaySFX()
     {
-        AudioManager.instance.PlayFX(AudioType.SFX, "coin");
+        AudioManager.instance.PlayFX(pickupSfx);
     }
 
     void ShowAmountPopup()
@@ -51,7 +51,7 @@ public class Coin : MonoBehaviour
         GameObject clone = Instantiate(popupAmountPrefab, mousePos, Quaternion.identity);
         TMP_Text amountText = clone.GetComponentInChildren<TMP_Text>();
 
-        amountText.text = "" + value;
+        amountText.text = "" + baseValue;
         amountText.color = Color.yellow;
     }
 }

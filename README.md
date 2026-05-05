@@ -8,6 +8,7 @@ Collect special coins
 
 Artifacts
 Money can fall off
+Wallet
 Money bags
 Piggy bank
 Loot goblin

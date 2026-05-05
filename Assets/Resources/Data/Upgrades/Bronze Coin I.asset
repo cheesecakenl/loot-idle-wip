@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8acbb037cd905cf4089760493324f421, type: 3}
+  m_Name: Bronze Coin I
+  m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
+  statType: 1
+  label: Bronze Coin I
+  description: Increase bronze coin value
+  costsCurrencyType: 0
+  costs:
+  - 10
+  - 100
+  - 1000
+  modifierType: 0
+  values:
+  - 1
+  - 10
+  - 100
+  maxLevel: 3
+  unlockAtParentLevel: 1
+  isInfinite: 0
+  costIncreaseMultiplier: 1
+  parent: {fileID: 11400000, guid: 4398c998b1f74dc489505523a53df258, type: 2}
