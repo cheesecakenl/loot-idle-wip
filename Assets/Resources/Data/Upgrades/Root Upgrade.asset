@@ -12,17 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8acbb037cd905cf4089760493324f421, type: 3}
   m_Name: Root Upgrade
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
-  id: 5a19d47d-d8ea-4ce9-b9af-4929e24ffb72
   statType: 0
   label: Root
   description: Start here
   costsCurrencyType: 0
-  costs: 00000000
+  costs:
+  - 0
   modifierType: 0
   values:
   - 0
   maxLevel: 1
-  unlockAtParentLevel: 0
+  unlockAtParentLevel: 1
   isInfinite: 0
   costIncreaseMultiplier: 1
   parent: {fileID: 0}

@@ -51,7 +51,7 @@ public class StatsManager : MonoBehaviour
 
         foreach (Stat stat in allStats)
         {
-            foreach (UpgradeInstance upgradeInstance in UpgradesManager.instance.upgradeInstances)
+            foreach (UpgradeInstance upgradeInstance in UpgradesManager.instance.allUpgrades)
             {
                 if (upgradeInstance.level < 1)
                 {

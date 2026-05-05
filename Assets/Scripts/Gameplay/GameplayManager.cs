@@ -11,10 +11,6 @@ public class GameplayManager : MonoBehaviour
     [SerializeField] private Texture2D mouseTexture;
     [SerializeField] private GameObject chestPrefab;
 
-    private double totalMoney;
-
-    public double Money => totalMoney;
-
     private Vector2 clickHotspot;
 
     void Awake()
@@ -53,8 +49,6 @@ public class GameplayManager : MonoBehaviour
 
         double money = PlayerManager.instance.money;
 
-        totalMoney = money;
-
         Debug.Log($"Currently you have {money} money");
     }
 
@@ -91,8 +85,8 @@ public class GameplayManager : MonoBehaviour
 
     private void HandleOnCoinPickup(double amount)
     {
-        totalMoney += amount;
+        PlayerManager.instance.Gain(amount);
 
-        OnUpdateMoneyUI?.Invoke(totalMoney);
+        OnUpdateMoneyUI?.Invoke(PlayerManager.instance.money);
     }
 }

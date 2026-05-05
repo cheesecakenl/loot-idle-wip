@@ -48,13 +48,13 @@ public class UpgradeTreeUIManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        //DontDestroyOnLoad(gameObject);
-
-        upgradeNodes = GetComponentsInChildren<UpgradeNode>();
+        //DontDestroyOnLoad(gameObject);        
     }
 
     private void Start()
     {
+        upgradeNodes = GetComponentsInChildren<UpgradeNode>();
+
         HideTooltip();
 
         CheckUnlocks();

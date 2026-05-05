@@ -17,29 +17,66 @@ public class PlayerManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
+
+        Init();
+    }
+
+    private void Init()
+    {
+        money = 5000;
+
+        SaveData saveData = SaveManager.Load();
+
+        if (saveData == null) return;
+
+        money = saveData.money;
     }
 
     public string GetFormattedMoney()
     {
         string[] suffixes = { "", "K", "M", "B", "T", "Qa", "Qi", "Sx", "Sp", "Oc", "No", "Dc" };
 
-        if (money < 1000)
-            return money.ToString("0");
+        double tempMoney = money;
+
+        if (tempMoney < 1000)
+            return tempMoney.ToString("0");
 
         int suffixIndex = 0;
 
-        while (money >= 1000 && suffixIndex < suffixes.Length - 1)
+        while (tempMoney >= 1000 && suffixIndex < suffixes.Length - 1)
         {
-            money /= 1000;
+            tempMoney /= 1000;
             suffixIndex++;
         }
 
-        return money.ToString("0.##") + suffixes[suffixIndex];
+        return tempMoney.ToString("0.##") + suffixes[suffixIndex];
     }
 
     public void Pay(double amount)
     {
         money -= amount;
+    }
+
+    public void Gain(double amount)
+    {
+        money += amount;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            Save();
+        }
+    }
+
+    private void Save()
+    {
+        SaveData saveData = new();
+        saveData.money = money;
+        saveData.upgrades = UpgradesManager.instance.ConvertToUpgradeSaveData();
+
+        SaveManager.Save(saveData);
     }
 }

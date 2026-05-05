@@ -7,7 +7,7 @@ public class UpgradesManager : MonoBehaviour
 
     [SerializeField] private UpgradesDatabaseSO upgradesDatabase;
 
-    public List<UpgradeInstance> upgradeInstances;
+    public List<UpgradeInstance> allUpgrades;
 
     void Awake()
     {
@@ -20,19 +20,43 @@ public class UpgradesManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
+
+        LoadAllUpgrades();
     }
 
-    private void Start()
+    private void LoadAllUpgrades()
     {
-        upgradeInstances = ConvertToUpgradeInstances();
+        allUpgrades = new();
+
+        SaveData saveData = SaveManager.Load();
+
+        foreach(UpgradeData data in upgradesDatabase.allUpgrades)
+        {
+            int currentLevel = 0;
+
+            if (saveData != null)
+            {
+                foreach (UpgradeSaveData upgradeSaveData in saveData.upgrades)
+                {
+                    if (upgradeSaveData.label == data.label)
+                    {
+                        currentLevel = upgradeSaveData.level;
+                    }
+                }
+            }
+
+            UpgradeInstance instance = new UpgradeInstance(data, currentLevel);            
+
+            allUpgrades.Add(instance);
+        }
     }
 
     public List<UpgradeSaveData> ConvertToUpgradeSaveData()
     {
         List<UpgradeSaveData> saveUpgrades = new();
 
-        foreach (UpgradeInstance upgrade in upgradeInstances)
+        foreach (UpgradeInstance upgrade in allUpgrades)
         {
             saveUpgrades.Add(upgrade.ToSaveData());
         }
@@ -40,26 +64,8 @@ public class UpgradesManager : MonoBehaviour
         return saveUpgrades;
     }
 
-    public List<UpgradeInstance> ConvertToUpgradeInstances()
-    {
-        SaveData saveData = SaveManager.instance.Load();
-        if (saveData == null) return new(); 
-
-        List<UpgradeInstance> loadedUpgrades = new();
-        foreach (UpgradeSaveData upgradeSaveData in saveData.upgrades)
-        {
-            UpgradeData upgradeData = upgradesDatabase.GetByLabel(upgradeSaveData.label);
-            if (upgradeData == null)
-                continue;
-
-            loadedUpgrades.Add(new UpgradeInstance(upgradeData, upgradeSaveData.level));
-        }
-
-        return loadedUpgrades;
-    }
-
     public UpgradeInstance GetUpgradeInstance(string label)
     {
-        return upgradeInstances.Find(u => u.data.label == label);
+        return allUpgrades.Find(u => u.data.label == label);
     }
 }

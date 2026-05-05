@@ -5,10 +5,5 @@ using UnityEngine;
 public class UpgradesDatabaseSO : ScriptableObject
 {
     [SerializeField]
-    private List<UpgradeData> allUpgrades;
-
-    public UpgradeData GetByLabel(string label)
-    {
-        return allUpgrades.Find(u => u.label == label);
-    }
+    public List<UpgradeData> allUpgrades;
 }

@@ -10,19 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8acbb037cd905cf4089760493324f421, type: 3}
-  m_Name: Upgrade A
+  m_Name: Money Upgrade 1
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
-  id: eddc4f2f-e54d-4c27-a6c1-872de0f6e3e9
   statType: 0
-  label: Upgrade A
-  description: Increase money per coin
+  label: Money Upgrade 1
+  description: Increase money
   costsCurrencyType: 0
-  costs: 0a000000
+  costs:
+  - 10
+  - 100
+  - 1000
   modifierType: 0
   values:
-  - 100
-  maxLevel: 0
+  - 5
+  - 50
+  - 500
+  maxLevel: 3
   unlockAtParentLevel: 1
-  isInfinite: 1
-  costIncreaseMultiplier: 2
+  isInfinite: 0
+  costIncreaseMultiplier: 1
   parent: {fileID: 11400000, guid: 4398c998b1f74dc489505523a53df258, type: 2}
