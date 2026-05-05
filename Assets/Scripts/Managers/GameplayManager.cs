@@ -46,10 +46,6 @@ public class GameplayManager : MonoBehaviour
 
         AudioManager.instance.ChangeBgmVolume(0.1f);
         AudioManager.instance.PlayMusic(AudioType.BGM, "gameplay");
-
-        double money = PlayerManager.instance.money;
-
-        Debug.Log($"Currently you have {money} money");
     }
 
     void Update()

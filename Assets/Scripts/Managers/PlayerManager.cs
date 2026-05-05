@@ -50,7 +50,13 @@ public class PlayerManager : MonoBehaviour
             suffixIndex++;
         }
 
-        return tempMoney.ToString("0.##") + suffixes[suffixIndex];
+        // Fallback to scientific notation if we ran out of suffixes
+        if (suffixIndex == suffixes.Length - 1 && tempMoney >= 1000)
+        {
+            return money.ToString("0.000e+0");
+        }
+
+        return tempMoney.ToString("0.000") + suffixes[suffixIndex];
     }
 
     public void Pay(double amount)
