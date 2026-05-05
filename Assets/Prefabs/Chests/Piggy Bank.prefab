@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1002200060103138610}
   - component: {fileID: 6499869404499785428}
   m_Layer: 7
-  m_Name: Chest
+  m_Name: Piggy Bank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -84,7 +84,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7440981132975211316, guid: df061b781a817304a9c51c3976488b7f, type: 3}
+  m_Sprite: {fileID: -3513915382352427800, guid: eb878836e37414646bed251ebd6d8582, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -109,11 +109,11 @@ MonoBehaviour:
   bronzePrefab: {fileID: 8487980767456695000, guid: e2a1bc21c0ac7244b9cfd62751b7228e, type: 3}
   silverPrefab: {fileID: 1600771770868970195, guid: 50982a866dc91f7418ad309c4af09217, type: 3}
   goldPrefab: {fileID: 773178850481648445, guid: 49ccf0efd18b9e545a18daecd8383099, type: 3}
-  hitPoints: 5
+  hitPoints: 3
   animationShakeDuration: 0.2
   animationShakeStrength: 0.3
   popupAmountPrefab: {fileID: 6258809543794052064, guid: e4bcc48ccf558c3438e76d073271ef2e, type: 3}
-  chestOpenPrefab: {fileID: 7977912812860292555, guid: 1fd179867b82c1c4182a0465336dda94, type: 3}
+  chestOpenPrefab: {fileID: 7977912812860292555, guid: 9b31247a3d355cd4586debf339911e0b, type: 3}
   fadeDuration: 1
 --- !u!61 &1002200060103138610
 BoxCollider2D:
@@ -149,17 +149,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.1558286, y: -0.11687136}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.7, y: 3.23}
+    oldSize: {x: 8.82, y: 9.62}
     newSize: {x: 3.7, y: 3.23}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 3.7, y: 3.23}
+  m_Size: {x: 8.219019, y: 6.6841917}
   m_EdgeRadius: 0
 --- !u!50 &6499869404499785428
 Rigidbody2D:

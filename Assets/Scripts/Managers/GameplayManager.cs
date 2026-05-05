@@ -10,6 +10,7 @@ public class GameplayManager : MonoBehaviour
 
     [SerializeField] private Texture2D mouseTexture;
     [SerializeField] private GameObject chestPrefab;
+    [SerializeField] private GameObject piggyBankPrefab;
 
     private Vector2 clickHotspot;
 
@@ -76,7 +77,19 @@ public class GameplayManager : MonoBehaviour
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0f;
 
-        GameObject clone = Instantiate(chestPrefab, mousePos, Quaternion.identity);
+        GameObject prefab = null;
+        int idx = UnityEngine.Random.Range(1, 3);
+
+        if (idx == 1)
+        {
+            prefab = chestPrefab;
+        }
+        if (idx == 2)
+        {
+            prefab = piggyBankPrefab;
+        }
+
+        GameObject clone = Instantiate(prefab, mousePos, Quaternion.identity);
     }
 
     private void HandleOnCoinPickup(double amount)

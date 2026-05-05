@@ -967,6 +967,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameplayManager
   mouseTexture: {fileID: 2800000, guid: ea3bf8fda1aaf5c40ad49fcb2a9119f4, type: 3}
   chestPrefab: {fileID: 5199517509426165698, guid: 73243a13a155dc94494090d283401ec8, type: 3}
+  piggyBankPrefab: {fileID: 5199517509426165698, guid: 71f7ccee691f0b649a634c4dc727556c, type: 3}
 --- !u!4 &1517432356
 Transform:
   m_ObjectHideFlags: 0

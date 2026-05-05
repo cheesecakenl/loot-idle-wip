@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Piggy Bank Unlock
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
   statType: 4
-  label: Piggy Bank
-  description: Unlocks Piggy banks
+  label: Piggy Bank Unlock
+  description: Unlocks Piggy Bank
   costsCurrencyType: 0
   costs:
   - 25000
