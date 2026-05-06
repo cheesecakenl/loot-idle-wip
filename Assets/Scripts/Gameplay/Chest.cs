@@ -26,6 +26,7 @@ public class Chest : MonoBehaviour, IClickable
         rb.gravityScale = 3f;
 
         startingScale = transform.localScale;
+        animationShakeStrength = startingScale.x * animationShakeStrength;
     }
 
     void OnMouseDown()

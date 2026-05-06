@@ -67,7 +67,7 @@ public class StatsManager : MonoBehaviour
 
         foreach (Stat stat in allStats)
         {
-            Debug.Log("STAT " + stat.label + ": " + stat.GetValue());
+            //Debug.Log("STAT " + stat.label + ": " + stat.GetValue());
         }
     }
 

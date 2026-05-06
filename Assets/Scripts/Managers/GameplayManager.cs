@@ -77,16 +77,16 @@ public class GameplayManager : MonoBehaviour
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0f;
 
-        GameObject prefab = null;
-        int idx = UnityEngine.Random.Range(1, 3);
+        GameObject prefab = chestPrefab;
 
-        if (idx == 1)
+        bool piggyBankUnlocked = UpgradesManager.instance.IsUpgradeUnlocked(StatType.PIGGY_BANK_UNLOCK);
+        if (piggyBankUnlocked)
         {
-            prefab = chestPrefab;
-        }
-        if (idx == 2)
-        {
-            prefab = piggyBankPrefab;
+            int rand = UnityEngine.Random.Range(0, 100);
+            if (rand < 50)
+            {
+                prefab = piggyBankPrefab;
+            }
         }
 
         GameObject clone = Instantiate(prefab, mousePos, Quaternion.identity);

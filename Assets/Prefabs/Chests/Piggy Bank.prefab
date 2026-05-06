@@ -111,7 +111,7 @@ MonoBehaviour:
   goldPrefab: {fileID: 773178850481648445, guid: 49ccf0efd18b9e545a18daecd8383099, type: 3}
   hitPoints: 3
   animationShakeDuration: 0.2
-  animationShakeStrength: 0.3
+  animationShakeStrength: 0.2
   popupAmountPrefab: {fileID: 6258809543794052064, guid: e4bcc48ccf558c3438e76d073271ef2e, type: 3}
   chestOpenPrefab: {fileID: 7977912812860292555, guid: 9b31247a3d355cd4586debf339911e0b, type: 3}
   fadeDuration: 1

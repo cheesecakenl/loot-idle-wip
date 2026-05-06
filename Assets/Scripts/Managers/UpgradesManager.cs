@@ -31,7 +31,7 @@ public class UpgradesManager : MonoBehaviour
 
         SaveData saveData = SaveManager.Load();
 
-        foreach(UpgradeData data in upgradesDatabase.allUpgrades)
+        foreach (UpgradeData data in upgradesDatabase.allUpgrades)
         {
             int currentLevel = 0;
 
@@ -46,7 +46,7 @@ public class UpgradesManager : MonoBehaviour
                 }
             }
 
-            UpgradeInstance instance = new UpgradeInstance(data, currentLevel);            
+            UpgradeInstance instance = new UpgradeInstance(data, currentLevel);
 
             allUpgrades.Add(instance);
         }
@@ -67,5 +67,18 @@ public class UpgradesManager : MonoBehaviour
     public UpgradeInstance GetUpgradeInstance(string label)
     {
         return allUpgrades.Find(u => u.data.label == label);
+    }
+
+    public bool IsUpgradeUnlocked(StatType statType)
+    {
+        foreach (UpgradeInstance upgradeInstance in allUpgrades)
+        {
+            if (upgradeInstance.data.statType == statType && upgradeInstance.level > 0)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
