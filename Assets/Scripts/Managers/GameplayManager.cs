@@ -11,8 +11,11 @@ public class GameplayManager : MonoBehaviour
     [SerializeField] private Texture2D mouseTexture;
     [SerializeField] private GameObject chestPrefab;
     [SerializeField] private GameObject piggyBankPrefab;
+    [SerializeField] private GameObject mushroomPrefab;
 
     private Vector2 clickHotspot;
+
+    [SerializeField] public bool playBGM = false;
 
     void Awake()
     {
@@ -33,11 +36,13 @@ public class GameplayManager : MonoBehaviour
     void OnEnable()
     {
         Coin.OnCoinPickup += HandleOnCoinPickup;
+        Ingredient.OnIngredientDrop += HandleOnIngredientDrop;
     }
 
     void OnDisable()
     {
         Coin.OnCoinPickup -= HandleOnCoinPickup;
+        Ingredient.OnIngredientDrop -= HandleOnIngredientDrop;
     }
 
     private void Start()
@@ -45,8 +50,11 @@ public class GameplayManager : MonoBehaviour
         Cursor.SetCursor(mouseTexture, clickHotspot, CursorMode.ForceSoftware);
         Cursor.visible = true;
 
-        AudioManager.instance.ChangeBgmVolume(0.1f);
-        AudioManager.instance.PlayMusic(AudioType.BGM, "gameplay");
+        if (playBGM)
+        {
+            AudioManager.instance.ChangeBgmVolume(0.1f);
+            AudioManager.instance.PlayMusic(AudioType.BGM, "gameplay");
+        }
     }
 
     void Update()
@@ -68,7 +76,9 @@ public class GameplayManager : MonoBehaviour
 
         if (Input.GetMouseButtonDown(1))
         {
-            SpawnChest();
+            //SpawnChest();
+
+            SpawnMushroom();
         }
     }
 
@@ -92,7 +102,22 @@ public class GameplayManager : MonoBehaviour
         GameObject clone = Instantiate(prefab, mousePos, Quaternion.identity);
     }
 
+    void SpawnMushroom()
+    {
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePos.z = 0f;
+
+        GameObject clone = Instantiate(mushroomPrefab, mousePos, Quaternion.identity);
+    }
+
     private void HandleOnCoinPickup(double amount)
+    {
+        PlayerManager.instance.Gain(amount);
+
+        OnUpdateMoneyUI?.Invoke(PlayerManager.instance.money);
+    }
+
+    private void HandleOnIngredientDrop(double amount)
     {
         PlayerManager.instance.Gain(amount);
 
