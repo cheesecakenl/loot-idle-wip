@@ -20,3 +20,5 @@ Click damage
 Generate x coin every second
 Boosterpacks
 Quests in skill tree. Like get 10 treasures to unlock node.
+
+Farm. Grow ingredients. Can grow multiple or golden version?
