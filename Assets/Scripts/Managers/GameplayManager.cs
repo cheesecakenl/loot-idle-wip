@@ -1,12 +1,9 @@
-using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameplayManager : MonoBehaviour
 {
     public static GameplayManager instance = null;
-
-    public static event Action<double> OnUpdateMoneyUI;
 
     [SerializeField] private Texture2D mouseTexture;
     [SerializeField] private GameObject chestPrefab;
@@ -35,16 +32,12 @@ public class GameplayManager : MonoBehaviour
 
     void OnEnable()
     {
-        Coin.OnCoinPickup += HandleOnCoinPickup;
-        Ingredient.OnIngredientDrop += HandleOnIngredientDrop;
-        UIPotionsSeller.OnPotionSold += HandleOnPotionSold;
+        GameEvents.Potion.OnPotionSold += HandleOnPotionSold;
     }
 
     void OnDisable()
     {
-        Coin.OnCoinPickup -= HandleOnCoinPickup;
-        Ingredient.OnIngredientDrop -= HandleOnIngredientDrop;
-        UIPotionsSeller.OnPotionSold -= HandleOnPotionSold;
+        GameEvents.Potion.OnPotionSold -= HandleOnPotionSold;
     }
 
     private void Start()
@@ -84,26 +77,6 @@ public class GameplayManager : MonoBehaviour
         }
     }
 
-    void SpawnChest()
-    {
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePos.z = 0f;
-
-        GameObject prefab = chestPrefab;
-
-        bool piggyBankUnlocked = UpgradesManager.instance.IsUpgradeUnlocked(StatType.PIGGY_BANK_UNLOCK);
-        if (piggyBankUnlocked)
-        {
-            int rand = UnityEngine.Random.Range(0, 100);
-            if (rand < 50)
-            {
-                prefab = piggyBankPrefab;
-            }
-        }
-
-        GameObject clone = Instantiate(prefab, mousePos, Quaternion.identity);
-    }
-
     void SpawnMushroom()
     {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -112,24 +85,8 @@ public class GameplayManager : MonoBehaviour
         GameObject clone = Instantiate(mushroomPrefab, mousePos, Quaternion.identity);
     }
 
-    private void HandleOnCoinPickup(double amount)
-    {
-        PlayerManager.instance.Gain(amount);
-
-        OnUpdateMoneyUI?.Invoke(PlayerManager.instance.money);
-    }
-
-    private void HandleOnIngredientDrop(double amount)
-    {
-        PlayerManager.instance.Gain(amount);
-
-        OnUpdateMoneyUI?.Invoke(PlayerManager.instance.money);
-    }
-
     private void HandleOnPotionSold(double amount)
     {
         PlayerManager.instance.Gain(amount);
-
-        OnUpdateMoneyUI?.Invoke(PlayerManager.instance.money);
     }
 }

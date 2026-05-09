@@ -1,6 +1,7 @@
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UpgradeTreeUIManager : MonoBehaviour
@@ -27,12 +28,14 @@ public class UpgradeTreeUIManager : MonoBehaviour
 
     void OnEnable()
     {
+        GameEvents.UI.OnUpgradeClicked += HandleOnUpgradeClicked;
         GameEvents.Player.OnDataReset += HandleOnPlayerDataReset;
         GameEvents.UI.OnTreePanningOrZooming += HandleOnTreePanningOrZooming;
     }
 
     void OnDisable()
     {
+        GameEvents.UI.OnUpgradeClicked -= HandleOnUpgradeClicked;
         GameEvents.Player.OnDataReset -= HandleOnPlayerDataReset;
         GameEvents.UI.OnTreePanningOrZooming -= HandleOnTreePanningOrZooming;
     }
@@ -53,11 +56,31 @@ public class UpgradeTreeUIManager : MonoBehaviour
 
     private void Start()
     {
+        MouseCursor.instance.ShowCursor(MouseCursor.MouseCursorType.HAND);
+
         upgradeNodes = GetComponentsInChildren<UpgradeNode>();
 
         HideTooltip();
 
         CheckUnlocks();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            SceneManager.LoadScene("Gameplay");
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene("UpgradeTree");
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 
     public void ShowTooltip(UpgradeInstance upgradeInstance, Vector3 nodePosition)
@@ -99,12 +122,7 @@ public class UpgradeTreeUIManager : MonoBehaviour
 
     private void ShowCurrency(UpgradeInstance upgradeInstance)
     {
-        Sprite sprite = CurrencyManager.instance.GetSpriteForCurrency(upgradeInstance.data.costsCurrencyType);
-        if (sprite != null)
-        {
-            tooltipIcon.sprite = sprite;
-            tooltipIcon.enabled = true;
-        }
+        tooltipIcon.enabled = true;
         tooltipCurrencyAmount.text = upgradeInstance.GetCost().ToString();
     }
 
@@ -148,7 +166,7 @@ public class UpgradeTreeUIManager : MonoBehaviour
             UpgradeInstance ownedUpgrade = UpgradesManager.instance.GetUpgradeInstance(node.data.label);
             UpgradeInstance parentUpgrade = UpgradesManager.instance.GetUpgradeInstance(node.data.parent == null ? "" : node.data.parent.label);
 
-            bool canBuyUpgrade = CurrencyManager.instance.CanBuyUpgrade(ownedUpgrade);
+            bool canBuyUpgrade = UpgradesManager.instance.CanBuyUpgrade(ownedUpgrade);
 
             Image bgImage = node.transform.Find("BG")?.GetComponent<Image>();
             if (bgImage != null)
@@ -187,5 +205,27 @@ public class UpgradeTreeUIManager : MonoBehaviour
     private void HandleOnPlayerDataReset()
     {
         CheckUnlocks();
+    }
+
+    private void HandleOnUpgradeClicked(string label)
+    {
+        if (label == null || label.Length < 1) return;
+
+        UpgradeInstance upgradeInstance = UpgradesManager.instance.GetUpgradeInstance(label);
+
+        if (upgradeInstance == null) return;
+
+        // Buy upgrade
+        bool buyUpgrade = UpgradesManager.instance.BuyUpgrade(upgradeInstance);
+        if (!buyUpgrade)
+        {
+            return;
+        }
+
+        upgradeInstance.LevelUp();
+
+        UpgradeTreeUIManager.instance.CheckUnlocks();
+
+        PlayerManager.instance.Save();
     }
 }

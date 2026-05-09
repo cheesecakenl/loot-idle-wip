@@ -81,4 +81,52 @@ public class UpgradesManager : MonoBehaviour
 
         return false;
     }
+
+    public bool BuyUpgrade(UpgradeInstance upgradeInstance)
+    {
+        if (upgradeInstance == null)
+        {
+            return false;
+        }
+
+        if (!upgradeInstance.data.isInfinite && upgradeInstance.level == upgradeInstance.data.maxLevel)
+        {
+            return false;
+        }
+
+        double money = PlayerManager.instance.money;
+        if (money <= 0)
+        {
+            return false;
+        }
+
+        double costs = upgradeInstance.GetCost();
+        if (money < costs)
+        {
+            return false;
+        }
+
+        PlayerManager.instance.Pay(costs);
+
+        return true;
+    }
+
+    public bool CanBuyUpgrade(UpgradeInstance upgradeInstance)
+    {
+        if (upgradeInstance == null) return false;
+
+        double money = PlayerManager.instance.money;
+        if (money <= 0)
+        {
+            return false;
+        }
+
+        double costs = upgradeInstance.GetCost();
+        if (money >= costs)
+        {
+            return true;
+        }
+
+        return false;
+    }
 }

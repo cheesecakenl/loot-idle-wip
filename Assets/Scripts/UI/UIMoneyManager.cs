@@ -1,9 +1,9 @@
 using TMPro;
 using UnityEngine;
 
-public class UIManager : MonoBehaviour
+public class UIMoneyManager : MonoBehaviour
 {
-    public static UIManager instance = null;
+    public static UIMoneyManager instance = null;
 
     [SerializeField] private TMP_Text moneyText;
 
@@ -25,17 +25,16 @@ public class UIManager : MonoBehaviour
 
     void OnEnable()
     {
-        GameplayManager.OnUpdateMoneyUI += HandleOnUpdateMoneyUI;
+        GameEvents.Money.OnMoneyChanged += HandleOnMoneyChanged;
     }
 
     void OnDisable()
     {
-        GameplayManager.OnUpdateMoneyUI -= HandleOnUpdateMoneyUI;
+        GameEvents.Money.OnMoneyChanged -= HandleOnMoneyChanged;
     }
 
-    private void HandleOnUpdateMoneyUI(double totalMoney)
+    private void HandleOnMoneyChanged(double amount)
     {
-        string formattedMoney = PlayerManager.instance.GetFormattedMoney();
-        moneyText.text = formattedMoney;
+        moneyText.text = MoneyHelper.FormatMoney(amount);
     }
 }

@@ -1,12 +1,9 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class UIPotionsSeller : MonoBehaviour
 {
-    public static event Action<double> OnPotionSold;
-
     [SerializeField] private RectTransform rectTransform;
     [SerializeField] private float sellTimerInterval = 3f;
     private float sellTimer;
@@ -21,12 +18,12 @@ public class UIPotionsSeller : MonoBehaviour
 
     void OnEnable()
     {
-        Potion.OnPotionPickup += HandleOnPotionPickup;
+        GameEvents.Potion.OnPotionPickup += HandleOnPotionPickup;
     }
 
     void OnDisable()
     {
-        Potion.OnPotionPickup -= HandleOnPotionPickup;
+        GameEvents.Potion.OnPotionPickup -= HandleOnPotionPickup;
     }
 
     private void Start()
@@ -68,7 +65,7 @@ public class UIPotionsSeller : MonoBehaviour
         {
             DecreaseVisualTimer();
             sellTimer += Time.deltaTime;
-        }        
+        }
     }
 
     private void DecreaseVisualTimer()
@@ -82,7 +79,7 @@ public class UIPotionsSeller : MonoBehaviour
     }
 
     private void ResetVisualTimer()
-    { 
+    {
         rectTransform.sizeDelta = new Vector2(sellTimerImageWidth, rectTransform.rect.height);
     }
 
@@ -98,9 +95,9 @@ public class UIPotionsSeller : MonoBehaviour
 
             AudioManager.instance.PlayFX(sellSfx);
 
-            OnPotionSold?.Invoke(amount);
+            GameEvents.Potion.OnPotionSold?.Invoke(amount);
 
-            Debug.Log("Sold potion for: " + amount);
+            //Debug.Log("Sold potion for: " + amount);
 
             sellingPotions.Remove(potion);
 

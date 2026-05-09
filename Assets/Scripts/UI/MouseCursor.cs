@@ -6,13 +6,11 @@ public class MouseCursor : MonoBehaviour
 
     private Vector2 _clickHotspot;
 
-    private Texture2D _mouseTextureHand;
-    private Texture2D _mouseTextureSword;
+    [SerializeField] private Texture2D _mouseTextureHand;
 
     public enum MouseCursorType
     {
-        HAND,
-        SWORD
+        HAND
     }
 
     void Awake()
@@ -33,9 +31,6 @@ public class MouseCursor : MonoBehaviour
 
     void Init()
     {
-        _mouseTextureHand = Resources.Load<Texture2D>("Cursor/cursorHand_grey");
-        _mouseTextureSword = Resources.Load<Texture2D>("Cursor/cursorSword_silver");
-
         // Offset from top left of the texture
         _clickHotspot = new Vector2(0f, 0f);
     }
@@ -48,15 +43,11 @@ public class MouseCursor : MonoBehaviour
 
     public void ShowCursor(MouseCursorType type)
     {
-        Texture2D cursorTexture;
+        Texture2D cursorTexture = null;
 
         if (type == MouseCursorType.HAND)
         {
             cursorTexture = _mouseTextureHand;
-        }
-        else
-        {
-            cursorTexture = _mouseTextureSword;
         }
 
         Cursor.SetCursor(cursorTexture, _clickHotspot, CursorMode.ForceSoftware);
