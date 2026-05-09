@@ -5,9 +5,7 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance = null;
 
-    [SerializeField] private AudioDatabase audioDatabase;
-
-    private AudioMixer audioMixer;
+    [SerializeField] private AudioMixer audioMixer;
     private AudioSource audioSourceBGM;
     private AudioSource audioSourceSFX;
 
@@ -23,8 +21,6 @@ public class AudioManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(gameObject);
-
-        audioMixer = audioDatabase.audioMixer;
 
         audioSourceBGM = gameObject.AddComponent<AudioSource>();
         audioSourceSFX = gameObject.AddComponent<AudioSource>();
@@ -59,30 +55,18 @@ public class AudioManager : MonoBehaviour
         audioMixer.SetFloat("VolumeSFX", dB);
     }
 
-    public void PlayMusic(AudioType audioType, string label)
+    public void PlayMusic(AudioClip clip)
     {
         if (audioSourceBGM.isPlaying)
         {
             audioSourceBGM.Stop();
         }
 
-        AudioClip clip = audioDatabase.GetAudioClip(audioType, label);
-
         if (clip == null) return;
 
         audioSourceBGM.clip = clip;
         audioSourceBGM.loop = true;
         audioSourceBGM.Play();
-    }
-
-    public void PlayFX(AudioType audioType, string label)
-    {
-        AudioClip clip = audioDatabase.GetAudioClip(audioType, label);
-
-        if (clip == null) return;
-
-        audioSourceSFX.pitch = Random.Range(0.95f, 1.05f);
-        audioSourceSFX.PlayOneShot(clip);
     }
 
     public void PlayFX(AudioClip clip)

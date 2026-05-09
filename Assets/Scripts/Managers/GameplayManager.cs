@@ -11,6 +11,8 @@ public class GameplayManager : MonoBehaviour
 
     [SerializeField] public bool playBGM = false;
 
+    [SerializeField] private AudioClip backgroundMusic;
+
     void Awake()
     {
         if (instance == null)
@@ -45,7 +47,7 @@ public class GameplayManager : MonoBehaviour
         if (playBGM)
         {
             AudioManager.instance.ChangeBgmVolume(0.1f);
-            AudioManager.instance.PlayMusic(AudioType.BGM, "gameplay");
+            AudioManager.instance.PlayMusic(backgroundMusic);
         }
     }
 
