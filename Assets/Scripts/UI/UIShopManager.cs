@@ -12,6 +12,16 @@ public class UIShopManager : MonoBehaviour
 
     [SerializeField] private IngredientDatabaseSO ingredientDatabase;
 
+    void OnEnable()
+    {
+        GameEvents.Money.OnMoneyChanged += HandleOnMoneyChanged;
+    }
+
+    void OnDisable()
+    {
+        GameEvents.Money.OnMoneyChanged -= HandleOnMoneyChanged;
+    }
+
     private void Start()
     {
         UpdateAffordableIngredients();
@@ -28,7 +38,7 @@ public class UIShopManager : MonoBehaviour
             Stat stat = StatsManager.instance.GetStat(ingredient.costStatType);
             double cost = ingredient.baseCost + stat.GetValue();
 
-            if (cost < currentMoney)
+            if (cost <= currentMoney)
             {
                 affordableIngredients.Add(ingredient);
             }
@@ -59,23 +69,30 @@ public class UIShopManager : MonoBehaviour
             Button buyButton = clone.transform.Find("BuyButton").GetComponent<Button>();
             TMP_Text buttonText = buyButton.GetComponentInChildren<TMP_Text>();
 
-            buyButton.onClick.RemoveAllListeners();
-            buyButton.onClick.AddListener(() => BuyIngredient(ingredient.label));
-
             Stat stat = StatsManager.instance.GetStat(ingredient.costStatType);
             double cost = ingredient.baseCost + stat.GetValue();
+
+            buyButton.onClick.RemoveAllListeners();
+            buyButton.onClick.AddListener(() => BuyIngredient(ingredient.label, cost));
 
             icon.sprite = ingredient.uiIcon;
             buttonText.text = MoneyHelper.FormatMoney(cost);
         }
     }
 
-    private void BuyIngredient(string label)
+    private void BuyIngredient(string label, double cost)
     {
         IngredientData data = ingredientDatabase.GetIngredient(label);
 
         GameObject clone = Instantiate(data.prefab, Vector3.zero, Quaternion.identity);
         Ingredient ingredient = clone.GetComponent<Ingredient>();
         ingredient.Init(data);
+
+        PlayerManager.instance.Pay(cost);
+    }
+
+    private void HandleOnMoneyChanged(double amount)
+    {
+        UpdateAffordableIngredients();
     }
 }

@@ -6,9 +6,6 @@ public class GameplayManager : MonoBehaviour
     public static GameplayManager instance = null;
 
     [SerializeField] private Texture2D mouseTexture;
-    [SerializeField] private GameObject chestPrefab;
-    [SerializeField] private GameObject piggyBankPrefab;
-    [SerializeField] private GameObject mushroomPrefab;
 
     private Vector2 clickHotspot;
 
@@ -68,21 +65,6 @@ public class GameplayManager : MonoBehaviour
         {
             Application.Quit();
         }
-
-        if (Input.GetMouseButtonDown(1))
-        {
-            //SpawnChest();
-
-            SpawnMushroom();
-        }
-    }
-
-    void SpawnMushroom()
-    {
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePos.z = 0f;
-
-        GameObject clone = Instantiate(mushroomPrefab, mousePos, Quaternion.identity);
     }
 
     private void HandleOnPotionSold(double amount)

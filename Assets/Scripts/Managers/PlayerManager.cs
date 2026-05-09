@@ -24,7 +24,7 @@ public class PlayerManager : MonoBehaviour
 
     private void Init()
     {
-        money = 50000;
+        money = 1;
 
         SaveData saveData = SaveManager.Load();
 
