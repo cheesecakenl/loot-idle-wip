@@ -103,12 +103,12 @@ TextureImporter:
       name: Icon_Potion02_Purple_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 132
-        height: 150
+        x: 28
+        y: 6
+        width: 119
+        height: 167
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 12ba8aeb2604c954384053f60c53fe43
     internalID: 0
     vertices: []
     indices: 

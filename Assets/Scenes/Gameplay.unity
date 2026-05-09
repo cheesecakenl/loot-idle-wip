@@ -666,6 +666,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 542564824}
   m_CullTransparentMesh: 1
+--- !u!1 &571364690
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 571364692}
+  - component: {fileID: 571364691}
+  m_Layer: 0
+  m_Name: Potionsmanager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &571364691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 571364690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82ab48f705980b34e957aea082b11dfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PotionsManager
+  potionsDatabase: {fileID: 11400000, guid: b0493ecd2471cdd448e3ab20c3ac4810, type: 2}
+--- !u!4 &571364692
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 571364690}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &591650884
 GameObject:
   m_ObjectHideFlags: 0
@@ -2696,6 +2741,7 @@ SceneRoots:
   - {fileID: 1153627489}
   - {fileID: 1706397726}
   - {fileID: 1291363793}
+  - {fileID: 465756004}
   - {fileID: 633768470}
   - {fileID: 1557104651}
   - {fileID: 1577274929}
@@ -2704,4 +2750,4 @@ SceneRoots:
   - {fileID: 776158299}
   - {fileID: 334708176}
   - {fileID: 1018236440}
-  - {fileID: 465756004}
+  - {fileID: 571364692}

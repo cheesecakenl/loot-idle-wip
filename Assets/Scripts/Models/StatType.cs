@@ -4,5 +4,6 @@ public enum StatType
     BRONZE_INCOME,
     SILVER_INCOME,
     GOLD_INCOME,
-    PIGGY_BANK_UNLOCK
+    PIGGY_BANK_UNLOCK,
+    POTION_A_INCOME
 }

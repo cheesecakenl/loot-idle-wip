@@ -1,16 +1,31 @@
+using System;
 using UnityEngine;
 
 public class Potion : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public static event Action<string> OnPotionPickup;
+
+    [SerializeField] private PotionData data;
+
+    [SerializeField] private AudioClip pickupSfx;
+
+    private bool isPickedUp = false;
+
+    void OnMouseOver()
     {
-        
+        if (isPickedUp) return;
+
+        isPickedUp = true;
+
+        PlaySFX();
+
+        OnPotionPickup?.Invoke(data.label);
+
+        Destroy(gameObject);
     }
 
-    // Update is called once per frame
-    void Update()
+    void PlaySFX()
     {
-        
+        AudioManager.instance.PlayFX(pickupSfx);
     }
 }
