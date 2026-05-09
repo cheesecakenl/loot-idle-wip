@@ -1,9 +1,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Flask : MonoBehaviour
+public class FlaskManager : MonoBehaviour
 {
+    public static FlaskManager instance = null;
+
     [SerializeField] List<Ingredient> flaskIngredients = new();
+
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Destroy(gameObject);
+        }
+
+        //DontDestroyOnLoad(gameObject);
+    }
+
+    // TODO: Bug if same ingredient enters trigger multiple times
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
