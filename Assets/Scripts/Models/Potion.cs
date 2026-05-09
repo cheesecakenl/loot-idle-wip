@@ -3,29 +3,19 @@ using UnityEngine;
 
 public class Potion : MonoBehaviour
 {
-    public static event Action<string> OnPotionPickup;
+    public static event Action<GameObject> OnPotionPickup;
 
-    [SerializeField] private PotionData data;
-
-    [SerializeField] private AudioClip pickupSfx;
-
-    private bool isPickedUp = false;
+    [SerializeField] public PotionData data;
 
     void OnMouseOver()
     {
-        if (isPickedUp) return;
-
-        isPickedUp = true;
-
         PlaySFX();
 
-        OnPotionPickup?.Invoke(data.label);
-
-        Destroy(gameObject);
+        OnPotionPickup?.Invoke(gameObject);
     }
 
     void PlaySFX()
     {
-        AudioManager.instance.PlayFX(pickupSfx);
+        AudioManager.instance.PlayFX(data.pickupSfx);
     }
 }

@@ -13,7 +13,4 @@ MonoBehaviour:
   m_Name: Potions Database
   m_EditorClassIdentifier: Assembly-CSharp::PotionsDatabaseSO
   allPotions:
-  - label: Potion A
-    uiIcon: {fileID: 1561848073141604387, guid: 5aaba4375244e8b4d8f026154b9cc368, type: 3}
-    valueStatType: 5
-    baseValue: 5
+  - {fileID: 11400000, guid: 424bee293948a164e9ab7d44bec13f73, type: 2}

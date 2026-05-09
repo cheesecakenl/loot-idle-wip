@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3797700574160293457}
   - component: {fileID: 6456265271667877697}
   m_Layer: 11
-  m_Name: Potion
+  m_Name: Potion A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -134,6 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca4d6b4c4582def4382bc39f59cf4fc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Potion
+  data: {fileID: 11400000, guid: 424bee293948a164e9ab7d44bec13f73, type: 2}
   pickupSfx: {fileID: 8300000, guid: 25a4f7085484759409f5e67816c2b10d, type: 3}
 --- !u!114 &3797700574160293457
 MonoBehaviour:

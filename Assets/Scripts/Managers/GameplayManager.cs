@@ -37,12 +37,14 @@ public class GameplayManager : MonoBehaviour
     {
         Coin.OnCoinPickup += HandleOnCoinPickup;
         Ingredient.OnIngredientDrop += HandleOnIngredientDrop;
+        UIPotionsSeller.OnPotionSold += HandleOnPotionSold;
     }
 
     void OnDisable()
     {
         Coin.OnCoinPickup -= HandleOnCoinPickup;
         Ingredient.OnIngredientDrop -= HandleOnIngredientDrop;
+        UIPotionsSeller.OnPotionSold -= HandleOnPotionSold;
     }
 
     private void Start()
@@ -118,6 +120,13 @@ public class GameplayManager : MonoBehaviour
     }
 
     private void HandleOnIngredientDrop(double amount)
+    {
+        PlayerManager.instance.Gain(amount);
+
+        OnUpdateMoneyUI?.Invoke(PlayerManager.instance.money);
+    }
+
+    private void HandleOnPotionSold(double amount)
     {
         PlayerManager.instance.Gain(amount);
 
