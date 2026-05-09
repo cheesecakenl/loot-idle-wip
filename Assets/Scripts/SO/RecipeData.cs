@@ -5,6 +5,7 @@ using UnityEngine;
 public class RecipeData : ScriptableObject
 {
     public string label;
+    public int tier;
     public List<IngredientData> ingredients;
     public PotionData resultPotion;
 }

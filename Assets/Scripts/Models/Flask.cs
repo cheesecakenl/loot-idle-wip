@@ -3,23 +3,18 @@ using UnityEngine;
 
 public class Flask : MonoBehaviour
 {
-    [SerializeField] List<Ingredient> ingredients = new();
-
-    [SerializeField] private int ingredientSlots = 3;
+    [SerializeField] List<Ingredient> flaskIngredients = new();
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Ingredient ingredient = collision.gameObject.GetComponent<Ingredient>();
 
-        if (ingredients.Count < ingredientSlots)
-        {
-            ingredients.Add(ingredient);
-        }
+        flaskIngredients.Add(ingredient);
     }
 
     private void OnMouseDown()
     {
-        if (ingredients.Count > 0)
+        if (flaskIngredients.Count > 0)
         {
             BrewPotion();
         }
@@ -27,26 +22,43 @@ public class Flask : MonoBehaviour
 
     private void BrewPotion()
     {
-        List<IngredientData> list = new();
+        List<IngredientData> brewIngredients = new();
 
-        foreach (Ingredient ingredient in ingredients)
+        foreach (Ingredient ingredient in flaskIngredients)
         {
-            list.Add(ingredient.Data);
+            brewIngredients.Add(ingredient.Data);
         }
 
-        PotionData result = RecipeManager.instance.GetResult(list);
+        RecipeData recipe = RecipeManager.instance.GetResult(brewIngredients);
 
-        if (result == null) return;
+        if (recipe == null) return;
 
-        GameObject clone = Instantiate(result.prefab, Vector3.zero, Quaternion.identity);
+        GameObject clone = Instantiate(recipe.resultPotion.prefab, Vector3.zero, Quaternion.identity);
         Potion potion = clone.GetComponent<Potion>();
-        potion.Init(result);
+        potion.Init(recipe.resultPotion);
 
-        foreach (Ingredient ingredient in ingredients)
+        // Remove ingredients
+        List<string> labels = new();
+
+        foreach (IngredientData data in recipe.ingredients)
         {
-            Destroy(ingredient.gameObject);
+            labels.Add(data.label);
         }
 
-        ingredients.Clear();
+        foreach (string label in labels)
+        {
+            for (int i = 0; i < flaskIngredients.Count; i++)
+            {
+                Ingredient ingredient = flaskIngredients[i];
+
+                if (ingredient.Data.label == label)
+                {
+                    Destroy(ingredient.gameObject);
+                    flaskIngredients.RemoveAt(i);
+
+                    break;
+                }
+            }
+        }
     }
 }

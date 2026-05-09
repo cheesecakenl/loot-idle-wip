@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d6579963186e8a048b75b85ecefe1613, type: 3}
-  m_Name: Potion Blue
+  m_Name: Potion Yellow
   m_EditorClassIdentifier: Assembly-CSharp::PotionData
-  label: Potion Blue
-  tier: 1
-  prefab: {fileID: 6823208814706273049, guid: 1dabb59a177dc9c45a4be07473c6cd65, type: 3}
-  uiIcon: {fileID: 21300000, guid: f4be9d458643cbc44a3825468b34ec62, type: 3}
+  label: Potion Yellow
+  tier: 2
+  prefab: {fileID: 6823208814706273049, guid: 60811d2d6e3b01e4f8e4d8323aeb6093, type: 3}
+  uiIcon: {fileID: 1485764668639339241, guid: 1d62502572070844fa7b02812df36c1e, type: 3}
   valueStatType: 2
-  baseValue: 20
-  pickupSfx: {fileID: 8300000, guid: 25a4f7085484759409f5e67816c2b10d, type: 3}
+  baseValue: 500
+  pickupSfx: {fileID: 8300000, guid: e5e343a4d38627143b1f837f5d41a68d, type: 3}

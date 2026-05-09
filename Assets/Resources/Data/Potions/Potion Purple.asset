@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d6579963186e8a048b75b85ecefe1613, type: 3}
-  m_Name: Potion A
+  m_Name: Potion Purple
   m_EditorClassIdentifier: Assembly-CSharp::PotionData
   label: Potion A
+  tier: 1
   prefab: {fileID: 6823208814706273049, guid: 05e1042dd2103f8458c8345f2e90088a, type: 3}
   uiIcon: {fileID: 1561848073141604387, guid: 5aaba4375244e8b4d8f026154b9cc368, type: 3}
   valueStatType: 2

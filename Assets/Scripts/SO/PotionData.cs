@@ -4,6 +4,7 @@ using UnityEngine;
 public class PotionData : ScriptableObject
 {
     public string label;
+    public int tier;
     public GameObject prefab;
     public Sprite uiIcon;
 

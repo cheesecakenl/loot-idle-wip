@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 74021c61be422c3468584ce1d714e124, type: 3}
-  m_Name: Ingredient A
+  m_Name: Ingredient Mushroom
   m_EditorClassIdentifier: Assembly-CSharp::IngredientData
   label: Mushroom
+  tier: 1
   prefab: {fileID: 4137325446696267540, guid: 1913cdf4a9ae46546b9d5e1b6e6ac267, type: 3}
   uiIcon: {fileID: 3469947111172774434, guid: d6937e253556ad644b6f9755fdf364ec, type: 3}
   costStatType: 1

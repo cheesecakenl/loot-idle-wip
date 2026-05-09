@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Blue Potion Recipe
   m_EditorClassIdentifier: Assembly-CSharp::RecipeData
   label: Blue Potion Recipe
+  tier: 1
   ingredients:
   - {fileID: 11400000, guid: 4264494d271b82348b3f7c3b745bfd1b, type: 2}
   - {fileID: 11400000, guid: a4c08b63503281e409557c8d39dd75ff, type: 2}

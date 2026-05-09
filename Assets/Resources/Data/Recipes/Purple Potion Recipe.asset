@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7af01a2e77e4a0248b759be9640ab110, type: 3}
-  m_Name: Basic Recipe
+  m_Name: Purple Potion Recipe
   m_EditorClassIdentifier: Assembly-CSharp::RecipeData
   label: Basic Recipe
+  tier: 1
   ingredients:
   - {fileID: 11400000, guid: 4264494d271b82348b3f7c3b745bfd1b, type: 2}
   resultPotion: {fileID: 11400000, guid: 424bee293948a164e9ab7d44bec13f73, type: 2}

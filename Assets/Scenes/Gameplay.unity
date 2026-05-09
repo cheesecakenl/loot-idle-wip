@@ -242,7 +242,7 @@ Transform:
   m_GameObject: {fileID: 212954288}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.93, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -292,7 +292,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.1, y: 5}
+  m_Size: {x: 0.1, y: 6.2}
   m_EdgeRadius: 0
 --- !u!1 &334708174
 GameObject:
@@ -447,8 +447,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2284a848b50dc0743ab6d17b543ecd8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Flask
-  ingredients: []
-  ingredientSlots: 3
+  flaskIngredients: []
 --- !u!61 &465756006
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -483,7 +482,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 2.3001301}
+  m_Offset: {x: 0, y: 2.3812077}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -493,7 +492,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2, y: 4.8202605}
+  m_Size: {x: 2, y: 4.9824157}
   m_EdgeRadius: 0
 --- !u!1 &591650884
 GameObject:
@@ -1982,7 +1981,7 @@ Transform:
   m_GameObject: {fileID: 1738862564}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.99, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2032,7 +2031,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.1, y: 5}
+  m_Size: {x: 0.1, y: 6.2}
   m_EdgeRadius: 0
 --- !u!1 &1784975809
 GameObject:

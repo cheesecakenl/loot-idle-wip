@@ -22,11 +22,9 @@ public class RecipeManager : MonoBehaviour
         //DontDestroyOnLoad(gameObject);
     }
 
-    public PotionData GetResult(List<IngredientData> inputIngredients)
+    public RecipeData GetResult(List<IngredientData> inputIngredients)
     {
-        RecipeData recipeData = GetBestRecipeMatch(inputIngredients);
-
-        return recipeData != null ? recipeData.resultPotion : null;
+        return GetBestRecipeMatch(inputIngredients);
     }
 
     private bool MatchesRecipe(List<IngredientData> input, List<IngredientData> recipe)
@@ -57,18 +55,25 @@ public class RecipeManager : MonoBehaviour
     public RecipeData GetBestRecipeMatch(List<IngredientData> input)
     {
         RecipeData bestMatch = null;
-        int bestScore = -1;
+        int bestIngredientCount = -1;
+        int bestTier = -1;
 
         foreach (RecipeData recipe in recipeDatabase.allRecipes)
         {
             if (!MatchesRecipe(input, recipe.ingredients))
                 continue;
 
-            int score = recipe.ingredients.Count;
+            int ingredientCount = recipe.ingredients.Count;
+            int tier = recipe.tier;
 
-            if (score > bestScore)
+            bool isBetterMatch =
+                ingredientCount > bestIngredientCount ||
+                (ingredientCount == bestIngredientCount && tier > bestTier);
+
+            if (isBetterMatch)
             {
-                bestScore = score;
+                bestIngredientCount = ingredientCount;
+                bestTier = tier;
                 bestMatch = recipe;
             }
         }
