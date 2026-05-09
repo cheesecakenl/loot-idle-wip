@@ -24,23 +24,55 @@ public class RecipeManager : MonoBehaviour
 
     public PotionData GetResult(List<IngredientData> inputIngredients)
     {
+        RecipeData recipeData = GetBestRecipeMatch(inputIngredients);
+
+        return recipeData != null ? recipeData.resultPotion : null;
+    }
+
+    private bool MatchesRecipe(List<IngredientData> input, List<IngredientData> recipe)
+    {
+        var inputCounts = input
+            .GroupBy(i => i)
+            .ToDictionary(g => g.Key, g => g.Count());
+
+        var recipeCounts = recipe
+            .GroupBy(i => i)
+            .ToDictionary(g => g.Key, g => g.Count());
+
+        foreach (var pair in recipeCounts)
+        {
+            IngredientData ingredient = pair.Key;
+            int requiredAmount = pair.Value;
+
+            if (!inputCounts.TryGetValue(ingredient, out int inputAmount))
+                return false;
+
+            if (inputAmount < requiredAmount)
+                return false;
+        }
+
+        return true;
+    }
+
+    public RecipeData GetBestRecipeMatch(List<IngredientData> input)
+    {
+        RecipeData bestMatch = null;
+        int bestScore = -1;
+
         foreach (RecipeData recipe in recipeDatabase.allRecipes)
         {
-            if (MatchesRecipe(inputIngredients, recipe.ingredients))
+            if (!MatchesRecipe(input, recipe.ingredients))
+                continue;
+
+            int score = recipe.ingredients.Count;
+
+            if (score > bestScore)
             {
-                return recipe.resultPotion;
+                bestScore = score;
+                bestMatch = recipe;
             }
         }
 
-        return null;
-    }
-
-    private bool MatchesRecipe(
-        List<IngredientData> input,
-        List<IngredientData> recipe)
-    {
-        if (input.Count != recipe.Count) return false;
-
-        return !input.Except(recipe).Any() && !recipe.Except(input).Any();
+        return bestMatch;
     }
 }
