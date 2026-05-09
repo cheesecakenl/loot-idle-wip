@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 30608901480706843}
   - component: {fileID: 6613725628993376357}
   m_Layer: 9
-  m_Name: Mushroom
+  m_Name: Bat Wing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 3469947111172774434, guid: d6937e253556ad644b6f9755fdf364ec, type: 3}
+  m_Sprite: {fileID: -8370645169418745971, guid: d6937e253556ad644b6f9755fdf364ec, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -185,4 +185,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce3f7daeb2030b74aa3b9d8e33ebcfc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Ingredient
-  data: {fileID: 11400000, guid: 4264494d271b82348b3f7c3b745bfd1b, type: 2}

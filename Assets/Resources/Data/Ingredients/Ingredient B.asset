@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74021c61be422c3468584ce1d714e124, type: 3}
+  m_Name: Ingredient B
+  m_EditorClassIdentifier: Assembly-CSharp::IngredientData
+  label: Bat Wing
+  prefab: {fileID: 4137325446696267540, guid: f1f014aeba3b64047a024314ec3dbd38, type: 3}
+  uiIcon: {fileID: -8370645169418745971, guid: d6937e253556ad644b6f9755fdf364ec, type: 3}
+  costStatType: 1
+  baseCost: 10
+  dropSfx: {fileID: 8300000, guid: 25a4f7085484759409f5e67816c2b10d, type: 3}

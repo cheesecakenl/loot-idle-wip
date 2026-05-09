@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Potion A
   m_EditorClassIdentifier: Assembly-CSharp::PotionData
   label: Potion A
+  prefab: {fileID: 6823208814706273049, guid: 05e1042dd2103f8458c8345f2e90088a, type: 3}
   uiIcon: {fileID: 1561848073141604387, guid: 5aaba4375244e8b4d8f026154b9cc368, type: 3}
-  valueStatType: 5
+  valueStatType: 2
   baseValue: 5
   pickupSfx: {fileID: 8300000, guid: f7fb3fc5b09693349a6cab01a1213d2e, type: 3}

@@ -4,6 +4,7 @@ using UnityEngine;
 public class PotionData : ScriptableObject
 {
     public string label;
+    public GameObject prefab;
     public Sprite uiIcon;
 
     [SerializeField, Tooltip("This upgrade effects the chosen stat")]

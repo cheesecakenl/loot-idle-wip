@@ -7,13 +7,13 @@ public class PotionsDatabaseSO : ScriptableObject
     [SerializeField]
     public List<PotionData> allPotions;
 
-    public PotionData GetEntry(string label)
+    public PotionData GetPotion(string label)
     {
-        foreach (PotionData potion in allPotions)
+        foreach (PotionData data in allPotions)
         {
-            if (potion.label == label)
+            if (data.label == label)
             {
-                return potion;
+                return data;
             }
         }
 

@@ -37,7 +37,7 @@ public class UIPotionsSeller : MonoBehaviour
         {
             Potion potion = go.GetComponent<Potion>();
 
-            sellingPotions.Add(potion.data);
+            sellingPotions.Add(potion.Data);
 
             potionSlot1.transform.parent.gameObject.SetActive(true);
 

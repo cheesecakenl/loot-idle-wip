@@ -2,7 +2,14 @@ using UnityEngine;
 
 public class Potion : MonoBehaviour
 {
-    [SerializeField] public PotionData data;
+    private PotionData data;
+
+    public PotionData Data => data;
+
+    public void Init(PotionData data)
+    {
+        this.data = data;
+    }
 
     void OnMouseOver()
     {

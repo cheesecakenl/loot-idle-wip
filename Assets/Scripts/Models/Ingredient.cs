@@ -2,17 +2,12 @@ using UnityEngine;
 
 public class Ingredient : MonoBehaviour
 {
-    [SerializeField] private GameObject popupAmountPrefab;
-    [SerializeField] private StatType scalesWithStat;
-    [SerializeField] private double baseValue = 0;
+    private IngredientData data;
 
-    void Start()
+    public IngredientData Data => data;
+
+    public void Init(IngredientData ingredientData)
     {
-        if (StatsManager.instance != null)
-        {
-            Stat stat = StatsManager.instance.GetStat(scalesWithStat);
-
-            baseValue += stat.GetValue();
-        }
+        data = ingredientData;
     }
 }
