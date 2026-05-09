@@ -447,8 +447,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Flask
   ingredients: []
-  ingredientSlots: 1
-  potionsDatabase: {fileID: 11400000, guid: b0493ecd2471cdd448e3ab20c3ac4810, type: 2}
+  ingredientSlots: 3
 --- !u!61 &465756006
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1231,6 +1230,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1235993477
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1235993479}
+  - component: {fileID: 1235993478}
+  m_Layer: 0
+  m_Name: RecipeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1235993478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1235993477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eea7480aec863f8408eadbf5996c3c7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RecipeManager
+  recipeDatabase: {fileID: 11400000, guid: cfaad11f3ab94ac4a9b59afecb55e311, type: 2}
+--- !u!4 &1235993479
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1235993477}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 855.7518, y: 553.0461, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1291363791
 GameObject:
   m_ObjectHideFlags: 0
@@ -1339,9 +1383,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameplayManager
   mouseTexture: {fileID: 2800000, guid: ea3bf8fda1aaf5c40ad49fcb2a9119f4, type: 3}
-  chestPrefab: {fileID: 5199517509426165698, guid: 73243a13a155dc94494090d283401ec8, type: 3}
-  piggyBankPrefab: {fileID: 5199517509426165698, guid: 71f7ccee691f0b649a634c4dc727556c, type: 3}
-  mushroomPrefab: {fileID: 4137325446696267540, guid: 1913cdf4a9ae46546b9d5e1b6e6ac267, type: 3}
   playBGM: 0
 --- !u!4 &1517432356
 Transform:
@@ -2393,3 +2434,4 @@ SceneRoots:
   - {fileID: 705906461}
   - {fileID: 334708176}
   - {fileID: 1018236440}
+  - {fileID: 1235993479}

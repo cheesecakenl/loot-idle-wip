@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PotionsDatabaseSO
   allPotions:
   - {fileID: 11400000, guid: 424bee293948a164e9ab7d44bec13f73, type: 2}
+  - {fileID: 11400000, guid: e76b0e5e9171f564483a99c4cd199b8d, type: 2}

@@ -5,9 +5,7 @@ public class Flask : MonoBehaviour
 {
     [SerializeField] List<Ingredient> ingredients = new();
 
-    [SerializeField] private int ingredientSlots = 1;
-
-    [SerializeField] private PotionsDatabaseSO potionsDatabase;
+    [SerializeField] private int ingredientSlots = 3;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -29,11 +27,20 @@ public class Flask : MonoBehaviour
 
     private void BrewPotion()
     {
-        PotionData data = potionsDatabase.GetPotion("Potion A");
+        List<IngredientData> list = new();
 
-        GameObject clone = Instantiate(data.prefab, Vector3.zero, Quaternion.identity);
+        foreach (Ingredient ingredient in ingredients)
+        {
+            list.Add(ingredient.Data);
+        }
+
+        PotionData result = RecipeManager.instance.GetResult(list);
+
+        if (result == null) return;
+
+        GameObject clone = Instantiate(result.prefab, Vector3.zero, Quaternion.identity);
         Potion potion = clone.GetComponent<Potion>();
-        potion.Init(data);
+        potion.Init(result);
 
         foreach (Ingredient ingredient in ingredients)
         {
