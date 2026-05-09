@@ -6,6 +6,9 @@ public class PlayerManager : MonoBehaviour
 
     public double money;
 
+    [SerializeField] private float autoSaveTimerInterval = 60f;
+    private float autoSaveTimer;
+
     void Awake()
     {
         if (instance == null)
@@ -20,6 +23,23 @@ public class PlayerManager : MonoBehaviour
         //DontDestroyOnLoad(gameObject);
 
         Init();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            Save();
+        }
+
+        if (autoSaveTimer > autoSaveTimerInterval)
+        {
+            Save();
+
+            autoSaveTimer = 0f;
+        }
+
+        autoSaveTimer += Time.deltaTime;
     }
 
     private void Init()
@@ -50,14 +70,6 @@ public class PlayerManager : MonoBehaviour
         money += amount;
 
         GameEvents.Money.OnMoneyChanged?.Invoke(money);
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            Save();
-        }
     }
 
     public void Save()

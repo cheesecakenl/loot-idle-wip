@@ -1,18 +1,18 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class UIPotionsSeller : MonoBehaviour
 {
     [SerializeField] private RectTransform rectTransform;
+    [SerializeField] private Transform contentParent;
+    [SerializeField] private GameObject itemPlaceholder;
+
     [SerializeField] private float sellTimerInterval = 3f;
     private float sellTimer;
     private float sellTimerImageWidth;
 
-    [SerializeField] private int maxSellSlots = 1;
-    [SerializeField] private List<PotionData> sellingPotions = new();
-
-    [SerializeField] private Image potionSlot1;
+    [SerializeField] private int maxPotionTypes = 3;
+    [SerializeField] private List<PotionSellData> potionsToSell = new();
 
     [SerializeField] private AudioClip sellSfx;
 
@@ -26,28 +26,74 @@ public class UIPotionsSeller : MonoBehaviour
         GameEvents.Potion.OnPotionPickup -= HandleOnPotionPickup;
     }
 
+    private void Awake()
+    {
+        sellTimerImageWidth = rectTransform.rect.width;
+    }
+
     private void Start()
     {
-        potionSlot1.transform.parent.gameObject.SetActive(false);
+        ClearShop();
+    }
+
+    private void ClearShop()
+    {
+        foreach (Transform child in contentParent)
+        {
+            Destroy(child.gameObject);
+        }
+    }
+
+    private void AddPotion(PotionData data)
+    {
+        bool potionAlreadySold = false;
+        foreach (PotionSellData sellData in potionsToSell)
+        {
+            if (sellData.potionData.label == data.label)
+            {
+                potionAlreadySold = true;
+                sellData.amount += 1;
+            }
+        }
+
+        if (!potionAlreadySold)
+        {
+            PotionSellData sellData = new PotionSellData();
+            sellData.potionData = data;
+            sellData.amount = 1;
+
+            potionsToSell.Add(sellData);
+        }
     }
 
     private void HandleOnPotionPickup(GameObject go)
     {
-        if (sellingPotions.Count < maxSellSlots)
+        if (potionsToSell.Count < maxPotionTypes)
         {
-            Potion potion = go.GetComponent<Potion>();
+            PotionData data = go.GetComponent<Potion>().Data;
 
-            sellingPotions.Add(potion.Data);
+            AddPotion(data);
 
-            potionSlot1.transform.parent.gameObject.SetActive(true);
+            ClearShop();
+
+            ShowPotions();
 
             Destroy(go);
         }
     }
 
-    private void Awake()
+    private void ShowPotions()
     {
-        sellTimerImageWidth = rectTransform.rect.width;
+        if (potionsToSell.Count < 1) return;
+
+        foreach (PotionSellData sellData in potionsToSell)
+        {
+            GameObject clone = Instantiate(itemPlaceholder, contentParent);
+            UISellPotionSlot uiShopItem = clone.GetComponent<UISellPotionSlot>();
+
+            uiShopItem.icon.sprite = sellData.potionData.uiIcon;
+            uiShopItem.amountText.text = MoneyHelper.FormatMoney(sellData.amount);
+        }
     }
 
     private void Update()
@@ -61,7 +107,7 @@ public class UIPotionsSeller : MonoBehaviour
             sellTimer = 0;
         }
 
-        if (sellingPotions.Count > 0)
+        if (potionsToSell.Count > 0)
         {
             DecreaseVisualTimer();
             sellTimer += Time.deltaTime;
@@ -85,23 +131,28 @@ public class UIPotionsSeller : MonoBehaviour
 
     private void Sell()
     {
-        if (sellingPotions.Count > 0)
+        if (potionsToSell.Count > 0)
         {
-            PotionData potion = sellingPotions[0];
+            PotionSellData sellData = potionsToSell[0];
 
-            Stat stat = StatsManager.instance.GetStat(potion.valueStatType);
+            Stat stat = StatsManager.instance.GetStat(sellData.potionData.valueStatType);
 
-            double amount = potion.baseValue + stat.GetValue();
+            double amount = sellData.potionData.baseValue + stat.GetValue();
 
             AudioManager.instance.PlayFX(sellSfx);
 
             GameEvents.Potion.OnPotionSold?.Invoke(amount);
 
-            //Debug.Log("Sold potion for: " + amount);
+            sellData.amount -= 1;
 
-            sellingPotions.Remove(potion);
+            if (sellData.amount < 1)
+            {
+                potionsToSell.Remove(sellData);
+            }
 
-            potionSlot1.transform.parent.gameObject.SetActive(false);
+            ClearShop();
+
+            ShowPotions();
         }
     }
 }

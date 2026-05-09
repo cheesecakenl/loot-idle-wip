@@ -344,6 +344,7 @@ GameObject:
   - component: {fileID: 5107167036105815370}
   - component: {fileID: 8222177672860021738}
   - component: {fileID: 771819521985718397}
+  - component: {fileID: 3732102942924527098}
   m_Layer: 5
   m_Name: Shop Ingredient Placeholder
   m_TagString: Untagged
@@ -410,3 +411,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3732102942924527098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5584340184714264919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ced46a60e232ebf4fa9e7140db604fca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIShopItem
+  icon: {fileID: 4973177755667105375}
+  buyButton: {fileID: 4751595602691149995}
+  buyButtonText: {fileID: 3195594171960285026}

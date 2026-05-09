@@ -64,19 +64,16 @@ public class UIShopManager : MonoBehaviour
         foreach (IngredientData ingredient in ingredients)
         {
             GameObject clone = Instantiate(itemPlaceholder, contentParent);
-
-            Image icon = clone.transform.Find("Icon").GetComponent<Image>();
-            Button buyButton = clone.transform.Find("BuyButton").GetComponent<Button>();
-            TMP_Text buttonText = buyButton.GetComponentInChildren<TMP_Text>();
+            UIShopItem uiShopItem = clone.GetComponent<UIShopItem>();
 
             Stat stat = StatsManager.instance.GetStat(ingredient.costStatType);
             double cost = ingredient.baseCost + stat.GetValue();
 
-            buyButton.onClick.RemoveAllListeners();
-            buyButton.onClick.AddListener(() => BuyIngredient(ingredient.label, cost));
+            uiShopItem.buyButton.onClick.RemoveAllListeners();
+            uiShopItem.buyButton.onClick.AddListener(() => BuyIngredient(ingredient.label, cost));
 
-            icon.sprite = ingredient.uiIcon;
-            buttonText.text = MoneyHelper.FormatMoney(cost);
+            uiShopItem.icon.sprite = ingredient.uiIcon;
+            uiShopItem.buyButtonText.text = MoneyHelper.FormatMoney(cost);
         }
     }
 
