@@ -71,7 +71,7 @@ public class UIShopManager : MonoBehaviour
             double discount = StatsManager.instance.GetValue(
                 ingredientData,
                 StatType.INGREDIENT_BUY_DISCOUNT,
-                ingredientData.baseCost
+                0
             );
 
             double costs = ingredientData.baseCost - discount;
@@ -95,9 +95,13 @@ public class UIShopManager : MonoBehaviour
 
     private void SpawnIngredient(IngredientData data)
     {
-        GameObject clone = Instantiate(data.prefab, Vector3.zero, Quaternion.identity);
-        Ingredient ingredient = clone.GetComponent<Ingredient>();
-        ingredient.Init(data);
+        int counter = 1;
+        for (int i = 0; i < counter; i++)
+        {
+            GameObject clone = Instantiate(data.prefab, Vector3.zero, Quaternion.identity);
+            Ingredient ingredient = clone.GetComponent<Ingredient>();
+            ingredient.Init(data);
+        }        
     }
 
     private void HandleOnMoneyChanged(double amount)

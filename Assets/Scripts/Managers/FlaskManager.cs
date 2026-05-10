@@ -51,9 +51,7 @@ public class FlaskManager : MonoBehaviour
 
         if (recipe == null) return;
 
-        GameObject clone = Instantiate(recipe.resultPotion.prefab, Vector3.zero, Quaternion.identity);
-        Potion potion = clone.GetComponent<Potion>();
-        potion.Init(recipe.resultPotion);
+        SpawnPotion(recipe);
 
         // Remove ingredients
         List<string> labels = new();
@@ -77,6 +75,17 @@ public class FlaskManager : MonoBehaviour
                     break;
                 }
             }
+        }
+    }
+
+    private void SpawnPotion(RecipeData recipe)
+    {
+        int counter = 50;
+        for (int i = 0; i < counter; i++)
+        {
+            GameObject clone = Instantiate(recipe.resultPotion.prefab, Vector3.zero, Quaternion.identity);
+            Potion potion = clone.GetComponent<Potion>();
+            potion.Init(recipe.resultPotion);
         }
     }
 }

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Mushroom Discount
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
   statType: 1
-  label: Mushroom Multiplier
+  label: Mushroom Discount
   description: Get discount on mushrooms.
   costs:
   - 10
