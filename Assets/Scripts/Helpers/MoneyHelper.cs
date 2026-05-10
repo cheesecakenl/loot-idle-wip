@@ -1,9 +1,22 @@
 public static class MoneyHelper
 {
+    private static readonly string[] suffixes = {
+        "",
+        "K",
+        "M",
+        "B",
+        "T",
+        "Qa", // quadrillion
+        "Qi", // quintillion
+        "Sx", // sextillion
+        "Sp", // septillion
+        "Oc", // octillion
+        "No", // nonillion
+        "Dc"  // decillion
+    };
+
     public static string FormatMoney(double amount)
     {
-        string[] suffixes = { "", "K", "M", "B", "T", "Qa", "Qi", "Sx", "Sp", "Oc", "No", "Dc" };
-
         double tempMoney = amount;
 
         if (tempMoney < 1000)
@@ -23,6 +36,6 @@ public static class MoneyHelper
             return tempMoney.ToString("0.000e+0");
         }
 
-        return tempMoney.ToString("0.##") + suffixes[suffixIndex];
+        return tempMoney.ToString("0.##") + " " + suffixes[suffixIndex];
     }
 }

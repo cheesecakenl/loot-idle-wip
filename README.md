@@ -4,21 +4,18 @@ Idle/Clicker game to earn lots of money.
 
 ## TODO
 
-Collect special coins
+Create unique potion.
+
+Prestige points
+Prestige UI
+Unlocked recipes screen
+Zoom in effect when getting a Potion from a new recipe for the first time
+Show potion sell amount
 
 Artifacts
-Money can fall off
-Wallet
-Money bags
-Piggy bank
-Loot goblin
-Keys
-Auto Clicker
-Click damage
-% chance chest
-% chance gems
-Generate x coin every second
-Boosterpacks
+Items can fall off
+Loot chests
+Auto buy
+Auto brew
 Quests in skill tree. Like get 10 treasures to unlock node.
-
-Farm. Grow ingredients. Can grow multiple or golden version?
+Farm. Grow ingredients. Can grow multiple or golden version

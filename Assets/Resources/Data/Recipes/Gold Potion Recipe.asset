@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7af01a2e77e4a0248b759be9640ab110, type: 3}
   m_Name: Gold Potion Recipe
   m_EditorClassIdentifier: Assembly-CSharp::RecipeData
-  label: Basic Recipe
-  tier: 1
+  label: Gold Potion Recipe
+  tier: 9
   ingredients:
   - {fileID: 11400000, guid: 4264494d271b82348b3f7c3b745bfd1b, type: 2}
-  resultPotion: {fileID: 11400000, guid: 424bee293948a164e9ab7d44bec13f73, type: 2}
+  - {fileID: 11400000, guid: a4c08b63503281e409557c8d39dd75ff, type: 2}
+  - {fileID: 11400000, guid: 7faa2ff3180a30848af84841fa33a48b, type: 2}
+  resultPotion: {fileID: 11400000, guid: 00a7ae39cba663f4283760d4cca746ab, type: 2}
