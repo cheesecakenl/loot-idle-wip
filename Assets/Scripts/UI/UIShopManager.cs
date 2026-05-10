@@ -30,20 +30,19 @@ public class UIShopManager : MonoBehaviour
 
         double currentMoney = PlayerManager.instance.money;
 
-        foreach (IngredientData ingredient in ingredientDatabase.allIngredients)
+        foreach (IngredientData ingredienDatat in ingredientDatabase.allIngredients)
         {
-            double cost = StatsManager.instance.GetValue(
-                ingredient,
+            double costStat = StatsManager.instance.GetValue(
+                ingredienDatat,
                 StatType.INGREDIENT_BUY_DISCOUNT,
-                ingredient.baseCost
+                ingredienDatat.baseCost
             );
 
-            //Stat stat = StatsManager.instance.GetStat(ingredient.costStatType);
-            //double cost = ingredient.baseCost + stat.GetValue();
+            double cost = ingredienDatat.baseCost + costStat;
 
             if (cost <= currentMoney)
             {
-                affordableIngredients.Add(ingredient);
+                affordableIngredients.Add(ingredienDatat);
             }
         }
 
@@ -69,20 +68,19 @@ public class UIShopManager : MonoBehaviour
             GameObject clone = Instantiate(itemPlaceholder, contentParent);
             UIShopItem uiShopItem = clone.GetComponent<UIShopItem>();
 
-            double cost = StatsManager.instance.GetValue(
+            double discount = StatsManager.instance.GetValue(
                 ingredientData,
                 StatType.INGREDIENT_BUY_DISCOUNT,
                 ingredientData.baseCost
             );
 
-            //Stat stat = StatsManager.instance.GetStat(ingredient.costStatType);
-            //double cost = ingredient.baseCost + stat.GetValue();
+            double costs = ingredientData.baseCost - discount;
 
             uiShopItem.buyButton.onClick.RemoveAllListeners();
-            uiShopItem.buyButton.onClick.AddListener(() => BuyIngredient(ingredientData.label, cost));
+            uiShopItem.buyButton.onClick.AddListener(() => BuyIngredient(ingredientData.label, costs));
 
             uiShopItem.icon.sprite = ingredientData.uiIcon;
-            uiShopItem.buyButtonText.text = MoneyHelper.FormatMoney(cost);
+            uiShopItem.buyButtonText.text = MoneyHelper.FormatMoney(costs);
         }
     }
 

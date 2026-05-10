@@ -2461,7 +2461,7 @@ GameObject:
   - component: {fileID: 1061222329}
   - component: {fileID: 1061222328}
   m_Layer: 5
-  m_Name: Mushroom Multiplier
+  m_Name: Mushroom Discount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

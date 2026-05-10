@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8acbb037cd905cf4089760493324f421, type: 3}
   m_Name: Potion Purple Percent
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
-  statType: 2
+  statType: 3
   label: Potion Purple Percent
   description: Increases Putple Potion sell value
   costs:
@@ -20,6 +20,7 @@ MonoBehaviour:
   - 20
   - 30
   modifierType: 1
+  target: {fileID: 11400000, guid: 424bee293948a164e9ab7d44bec13f73, type: 2}
   values:
   - 20
   - 40

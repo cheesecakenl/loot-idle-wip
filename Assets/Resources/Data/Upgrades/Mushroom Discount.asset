@@ -10,16 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8acbb037cd905cf4089760493324f421, type: 3}
-  m_Name: Mushroom Multiplier
+  m_Name: Mushroom Discount
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
-  statType: 3
+  statType: 1
   label: Mushroom Multiplier
-  description: Get more mushrooms when buying from shop.
+  description: Get discount on mushrooms.
   costs:
   - 10
   - 20
   - 30
   modifierType: 2
+  target: {fileID: 11400000, guid: 4264494d271b82348b3f7c3b745bfd1b, type: 2}
   values:
   - 1.5
   - 3.25

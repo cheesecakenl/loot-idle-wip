@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8acbb037cd905cf4089760493324f421, type: 3}
   m_Name: Mushroom Double Chance
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
-  statType: 3
+  statType: 2
   label: Mushroom Double Chance
   description: Chance to get 2x when buying from shop.
   costs:
@@ -22,6 +22,7 @@ MonoBehaviour:
   - 40
   - 50
   modifierType: 1
+  target: {fileID: 11400000, guid: 4264494d271b82348b3f7c3b745bfd1b, type: 2}
   values:
   - 1
   - 5
