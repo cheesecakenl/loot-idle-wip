@@ -9,7 +9,6 @@ public class UpgradeData : ScriptableObject
     public string label;
     public string description;
     public double[] costs;
-    [SerializeField, Tooltip("Formula: (baseValue + flatSum) * (1f + percentSum) * multiplierProduct. Percent values are / 100 first.")]
     public ModifierType modifierType;
     public double[] values;
     public int maxLevel = 0;

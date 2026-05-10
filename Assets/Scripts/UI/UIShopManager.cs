@@ -76,13 +76,29 @@ public class UIShopManager : MonoBehaviour
 
     private void BuyIngredient(string label, double cost)
     {
+        // Check buy stats
+        Stat stat = StatsManager.instance.GetStat(StatType.MUSHROOM_DOUBLE_CHANCE);
+        double chance = stat.GetValue();
+        bool doubleIt = Random.Range(0f, 100f) < chance;
+
+        Debug.Log($"Double chance {chance}%");
+
         IngredientData data = ingredientDatabase.GetIngredient(label);
 
+        SpawnIngredient(data);
+
+        if (doubleIt) {
+            SpawnIngredient(data);
+        }
+
+        PlayerManager.instance.Pay(cost);
+    }
+
+    private void SpawnIngredient(IngredientData data)
+    {
         GameObject clone = Instantiate(data.prefab, Vector3.zero, Quaternion.identity);
         Ingredient ingredient = clone.GetComponent<Ingredient>();
         ingredient.Init(data);
-
-        PlayerManager.instance.Pay(cost);
     }
 
     private void HandleOnMoneyChanged(double amount)
