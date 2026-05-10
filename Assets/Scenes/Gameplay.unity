@@ -324,7 +324,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerManager
   money: 0
-  autoSaveTimerInterval: 60
+  autoSaveTimerInterval: 300
 --- !u!4 &334708176
 Transform:
   m_ObjectHideFlags: 0

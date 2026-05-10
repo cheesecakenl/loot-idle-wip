@@ -1,3 +1,6 @@
+using System;
+using UnityEngine;
+
 public static class MoneyHelper
 {
     private static readonly string[] suffixes = {
@@ -37,5 +40,15 @@ public static class MoneyHelper
         }
 
         return tempMoney.ToString("0.##") + " " + suffixes[suffixIndex];
+    }
+
+    public static double CalculatePrestigePoints(double totalMoneyCurrentRun)
+    {
+        // Lower number is faster prestige points. Higher number is slower. 1e6 = 1000.000
+        double points = Math.Floor(Math.Sqrt(totalMoneyCurrentRun / 1e6));
+
+        Debug.Log($"Presige points: {points}");
+
+        return points;
     }
 }

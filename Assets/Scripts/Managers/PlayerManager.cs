@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -6,7 +8,7 @@ public class PlayerManager : MonoBehaviour
 
     public double money;
 
-    [SerializeField] private float autoSaveTimerInterval = 60f;
+    [SerializeField] private float autoSaveTimerInterval = 300f;
     private float autoSaveTimer;
 
     void Awake()
