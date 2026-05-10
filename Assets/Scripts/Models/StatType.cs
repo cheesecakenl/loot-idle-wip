@@ -2,5 +2,6 @@ public enum StatType
 {
     ROOT,
     INGREDIENT_A_COSTS,
-    POTION_A_INCOME
+    POTION_A_INCOME,
+    MUSHROOM_DOUBLE_CHANCE
 }

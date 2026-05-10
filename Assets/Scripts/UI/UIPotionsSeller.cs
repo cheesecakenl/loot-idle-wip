@@ -143,6 +143,8 @@ public class UIPotionsSeller : MonoBehaviour
 
             GameEvents.Potion.OnPotionSold?.Invoke(amount);
 
+            Debug.Log($"Sold potion for {amount}");
+
             sellData.amount -= 1;
 
             if (sellData.amount < 1)

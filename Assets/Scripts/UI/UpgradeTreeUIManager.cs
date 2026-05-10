@@ -224,7 +224,7 @@ public class UpgradeTreeUIManager : MonoBehaviour
 
         upgradeInstance.LevelUp();
 
-        UpgradeTreeUIManager.instance.CheckUnlocks();
+        CheckUnlocks();
 
         PlayerManager.instance.Save();
     }

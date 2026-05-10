@@ -43,6 +43,8 @@ public class StatsManager : MonoBehaviour
     void Start()
     {
         AddModifiersToStats();
+
+        ShowStats();
     }
 
     private void AddModifiersToStats()
@@ -64,10 +66,13 @@ public class StatsManager : MonoBehaviour
                 }
             }
         }
+    }
 
+    public void ShowStats()
+    {
         foreach (Stat stat in allStats)
         {
-            //Debug.Log("STAT " + stat.label + ": " + stat.GetValue());
+            Debug.Log("STAT " + stat.label + ": " + stat.GetValue());
         }
     }
 
