@@ -3,12 +3,13 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "LootIdle/Create Upgrade Data...")]
 public class UpgradeData : ScriptableObject
 {
-    [SerializeField, Tooltip("This upgrade effects the chosen stat")]
+    [SerializeField, Tooltip("This upgrade effects the chosen stat.")]
     public StatType statType;
 
     public string label;
     public string description;
     public double[] costs;
+    [SerializeField, Tooltip("FLAT = creates value. PERCENTAGE = scales existing value. MULTIPLIER = scales final value.")]
     public ModifierType modifierType;
     [SerializeField, Tooltip("Choose which object is affected by this upgrade.")]
     public GameData target;

@@ -1,0 +1,897 @@
+fileFormatVersion: 2
+guid: 38b715a94aaf23b4d88659e0c8fba1ab
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -13771975165911150
+    second: ingredients-sheet-2_0
+  - first:
+      213: -2847800631913677440
+    second: ingredients-sheet-2_1
+  - first:
+      213: -7112882467645947233
+    second: ingredients-sheet-2_2
+  - first:
+      213: 582411406271625851
+    second: ingredients-sheet-2_3
+  - first:
+      213: -1608673781321271718
+    second: ingredients-sheet-2_4
+  - first:
+      213: 3676530603390840526
+    second: ingredients-sheet-2_5
+  - first:
+      213: 4790264717688652834
+    second: ingredients-sheet-2_6
+  - first:
+      213: -824061622173928080
+    second: ingredients-sheet-2_7
+  - first:
+      213: 2892400287327718120
+    second: ingredients-sheet-2_8
+  - first:
+      213: -7262128725458764472
+    second: ingredients-sheet-2_9
+  - first:
+      213: -1311336789950899889
+    second: ingredients-sheet-2_10
+  - first:
+      213: -8844990256615285423
+    second: ingredients-sheet-2_11
+  - first:
+      213: -4827977597454598073
+    second: ingredients-sheet-2_12
+  - first:
+      213: 2892670650373362548
+    second: ingredients-sheet-2_13
+  - first:
+      213: -8209684134861777999
+    second: ingredients-sheet-2_14
+  - first:
+      213: 6575466220965054585
+    second: ingredients-sheet-2_15
+  - first:
+      213: -252750669289900682
+    second: ingredients-sheet-2_16
+  - first:
+      213: -4938773807698628701
+    second: ingredients-sheet-2_17
+  - first:
+      213: 687261738792829912
+    second: ingredients-sheet-2_18
+  - first:
+      213: -2192028830565247910
+    second: ingredients-sheet-2_19
+  - first:
+      213: 6138087654688739849
+    second: ingredients-sheet-2_20
+  - first:
+      213: -6717982970522805596
+    second: ingredients-sheet-2_21
+  - first:
+      213: -7930528399937790146
+    second: ingredients-sheet-2_22
+  - first:
+      213: -585544928945668370
+    second: ingredients-sheet-2_23
+  - first:
+      213: -4109098287985347363
+    second: ingredients-sheet-2_24
+  - first:
+      213: -4542425651400841377
+    second: ingredients-sheet-2_25
+  - first:
+      213: 995940261713880595
+    second: ingredients-sheet-2_26
+  - first:
+      213: -7705790133414343470
+    second: ingredients-sheet-2_27
+  - first:
+      213: 1799673142057660231
+    second: ingredients-sheet-2_28
+  - first:
+      213: 4794118899673303055
+    second: ingredients-sheet-2_29
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ingredients-sheet-2_0
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 438
+        width: 319
+        height: 582
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29f516826721fcff0800000000000000
+      internalID: -13771975165911150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ingredients-sheet-2_1
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 641
+        width: 212
+        height: 383
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08df6afd9649a78d0800000000000000
+      internalID: -2847800631913677440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ingredients-sheet-2_2
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 529
+        width: 248
+        height: 495
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f920cd2d417f94d90800000000000000
+      internalID: -7112882467645947233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ingredients-sheet-2_3
+      rect:
+        serializedVersion: 2
+        x: 878
+        y: 579
+        width: 339
+        height: 445
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7ab4f79614251800800000000000000
+      internalID: 582411406271625851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ingredients-sheet-2_4
+      rect:
+        serializedVersion: 2
+        x: 913
+        y: 751
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a567cd018b7dca9e0800000000000000
+      internalID: -1608673781321271718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ingredients-sheet-2_5
+      rect:
+        serializedVersion: 2
+        x: 1199
+        y: 681
+        width: 274
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecea6fcca19a50330800000000000000
+      internalID: 3676530603390840526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ingredients-sheet-2_6
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 735
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2244bed71607a7240800000000000000
+      internalID: 4790264717688652834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ingredients-sheet-2_7
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 385
+        width: 258
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0757a4912585094f0800000000000000
+      internalID: -824061622173928080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ingredients-sheet-2_8
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 333
+        width: 196
+        height: 303
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ea086a9cbed32820800000000000000
+      internalID: 2892400287327718120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ingredients-sheet-2_9
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 361
+        width: 226
+        height: 279
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84dbedd866cb73b90800000000000000
+      internalID: -7262128725458764472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ingredients-sheet-2_10
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 632
+        width: 15
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f49531623223dcde0800000000000000
+      internalID: -1311336789950899889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ingredients-sheet-2_11
+      rect:
+        serializedVersion: 2
+        x: 988
+        y: 623
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15d97a07938404580800000000000000
+      internalID: -8844990256615285423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ingredients-sheet-2_12
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 184
+        width: 78
+        height: 254
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 740cc2074f39ffcb0800000000000000
+      internalID: -4827977597454598073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ingredients-sheet-2_13
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 0
+        width: 326
+        height: 352
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 473d3b761a4d42820800000000000000
+      internalID: 2892670650373362548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ingredients-sheet-2_14
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 297
+        width: 269
+        height: 333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b3576fa6c7511e80800000000000000
+      internalID: -8209684134861777999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ingredients-sheet-2_15
+      rect:
+        serializedVersion: 2
+        x: 1087
+        y: 419
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 978c33d80bfb04b50800000000000000
+      internalID: 6575466220965054585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ingredients-sheet-2_16
+      rect:
+        serializedVersion: 2
+        x: 1139
+        y: 351
+        width: 84
+        height: 232
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 675bb3cfa9c0e7cf0800000000000000
+      internalID: -252750669289900682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ingredients-sheet-2_17
+      rect:
+        serializedVersion: 2
+        x: 1223
+        y: 384
+        width: 282
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3afae1e7363f57bb0800000000000000
+      internalID: -4938773807698628701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ingredients-sheet-2_18
+      rect:
+        serializedVersion: 2
+        x: 1224
+        y: 435
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d3c67009e4a98900800000000000000
+      internalID: 687261738792829912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ingredients-sheet-2_19
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 1
+        width: 211
+        height: 333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a545eb874695491e0800000000000000
+      internalID: -2192028830565247910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ingredients-sheet-2_20
+      rect:
+        serializedVersion: 2
+        x: 631
+        y: 9
+        width: 260
+        height: 339
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 902dee1733ede2550800000000000000
+      internalID: 6138087654688739849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ingredients-sheet-2_21
+      rect:
+        serializedVersion: 2
+        x: 1088
+        y: 1
+        width: 177
+        height: 339
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4aa5ddae41ee4c2a0800000000000000
+      internalID: -6717982970522805596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ingredients-sheet-2_22
+      rect:
+        serializedVersion: 2
+        x: 1088
+        y: 267
+        width: 9
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3f9f80207a11f190800000000000000
+      internalID: -7930528399937790146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ingredients-sheet-2_23
+      rect:
+        serializedVersion: 2
+        x: 1096
+        y: 300
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eee792e4df9bfd7f0800000000000000
+      internalID: -585544928945668370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ingredients-sheet-2_24
+      rect:
+        serializedVersion: 2
+        x: 1096
+        y: 292
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd4b775c0ec89f6c0800000000000000
+      internalID: -4109098287985347363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ingredients-sheet-2_25
+      rect:
+        serializedVersion: 2
+        x: 1104
+        y: 297
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5761a5dfef06f0c0800000000000000
+      internalID: -4542425651400841377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ingredients-sheet-2_26
+      rect:
+        serializedVersion: 2
+        x: 1279
+        y: 67
+        width: 196
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31627fc246a42dd00800000000000000
+      internalID: 995940261713880595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ingredients-sheet-2_27
+      rect:
+        serializedVersion: 2
+        x: 892
+        y: 0
+        width: 184
+        height: 294
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2dcc02063b88f0590800000000000000
+      internalID: -7705790133414343470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ingredients-sheet-2_28
+      rect:
+        serializedVersion: 2
+        x: 1102
+        y: 219
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74f68280039b9f810800000000000000
+      internalID: 1799673142057660231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ingredients-sheet-2_29
+      rect:
+        serializedVersion: 2
+        x: 891
+        y: 127
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f08830a2db1288240800000000000000
+      internalID: 4794118899673303055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      ingredients-sheet-2_0: -13771975165911150
+      ingredients-sheet-2_1: -2847800631913677440
+      ingredients-sheet-2_10: -1311336789950899889
+      ingredients-sheet-2_11: -8844990256615285423
+      ingredients-sheet-2_12: -4827977597454598073
+      ingredients-sheet-2_13: 2892670650373362548
+      ingredients-sheet-2_14: -8209684134861777999
+      ingredients-sheet-2_15: 6575466220965054585
+      ingredients-sheet-2_16: -252750669289900682
+      ingredients-sheet-2_17: -4938773807698628701
+      ingredients-sheet-2_18: 687261738792829912
+      ingredients-sheet-2_19: -2192028830565247910
+      ingredients-sheet-2_2: -7112882467645947233
+      ingredients-sheet-2_20: 6138087654688739849
+      ingredients-sheet-2_21: -6717982970522805596
+      ingredients-sheet-2_22: -7930528399937790146
+      ingredients-sheet-2_23: -585544928945668370
+      ingredients-sheet-2_24: -4109098287985347363
+      ingredients-sheet-2_25: -4542425651400841377
+      ingredients-sheet-2_26: 995940261713880595
+      ingredients-sheet-2_27: -7705790133414343470
+      ingredients-sheet-2_28: 1799673142057660231
+      ingredients-sheet-2_29: 4794118899673303055
+      ingredients-sheet-2_3: 582411406271625851
+      ingredients-sheet-2_4: -1608673781321271718
+      ingredients-sheet-2_5: 3676530603390840526
+      ingredients-sheet-2_6: 4790264717688652834
+      ingredients-sheet-2_7: -824061622173928080
+      ingredients-sheet-2_8: 2892400287327718120
+      ingredients-sheet-2_9: -7262128725458764472
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

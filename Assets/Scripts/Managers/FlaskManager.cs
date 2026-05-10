@@ -80,7 +80,7 @@ public class FlaskManager : MonoBehaviour
 
     private void SpawnPotion(RecipeData recipe)
     {
-        int counter = 50;
+        int counter = 1;
         for (int i = 0; i < counter; i++)
         {
             GameObject clone = Instantiate(recipe.resultPotion.prefab, Vector3.zero, Quaternion.identity);
