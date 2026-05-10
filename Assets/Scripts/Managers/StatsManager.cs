@@ -6,7 +6,7 @@ public class StatsManager : MonoBehaviour
 {
     public static StatsManager instance = null;
 
-    private List<Stat> allStats;
+    [SerializeField] private readonly Dictionary<StatKey, List<UpgradeInstance>> modifiers = new();
 
     void Awake()
     {
@@ -19,73 +19,120 @@ public class StatsManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        //DontDestroyOnLoad(gameObject);
-
-        allStats = CreateAllStats();
+        //DontDestroyOnLoad(gameObject);        
     }
 
-    private List<Stat> CreateAllStats()
+    private void Start()
     {
-        List<Stat> stats = new List<Stat>();
-
-        foreach (StatType type in Enum.GetValues(typeof(StatType)))
+        foreach (UpgradeInstance upgradeInstance in UpgradesManager.instance.allUpgrades)
         {
-            Stat stat = new Stat();
-            stat.type = type;
-            stat.label = type.ToString();
+            AddModifier(upgradeInstance);
+        }
+    }
 
-            stats.Add(stat);
+    public void AddModifier(UpgradeInstance mod)
+    {
+        StatKey key = new(
+            mod.data.target,
+            mod.data.statType
+        );
+
+        if (!modifiers.TryGetValue(key, out var list))
+        {
+            list = new List<UpgradeInstance>();
+            modifiers.Add(key, list);
         }
 
-        return stats;
+        list.RemoveAll(m => m.data == mod.data);
+
+        list.Add(mod);
     }
 
-    void Start()
+    public double GetValue(GameData target, StatType type, double baseValue)
     {
-        AddModifiersToStats();
+        StatKey key = new(target, type);
 
-        ShowStats();
-    }
+        if (!modifiers.TryGetValue(key, out var list))
+            return baseValue;
 
-    private void AddModifiersToStats()
-    {
-        if (UpgradesManager.instance == null) return;
+        double flatSum = 0;
+        double percentSum = 0;
+        double multiplierProduct = 1;
 
-        foreach (Stat stat in allStats)
+        foreach (UpgradeInstance mod in list)
         {
-            foreach (UpgradeInstance upgradeInstance in UpgradesManager.instance.allUpgrades)
+            if (mod.level < 1)
             {
-                if (upgradeInstance.level < 1)
-                {
-                    continue;
-                }
+                continue;
+            }
 
-                if (stat.type == upgradeInstance.data.statType)
-                {
-                    stat.AddModifier(upgradeInstance);
-                }
+            double value = mod.GetValue();
+
+            switch (mod.data.modifierType)
+            {
+                case ModifierType.FLAT:
+                    flatSum += value;
+                    break;
+
+                case ModifierType.PERCENTAGE:
+                    percentSum += value;
+                    break;
+
+                case ModifierType.MULTIPLIER:
+                    multiplierProduct *= value;
+                    break;
             }
         }
+
+        return (baseValue + flatSum)
+            * (1 + percentSum / 100)
+            * multiplierProduct;
     }
 
-    public void ShowStats()
+    private double OldCalc()
     {
-        foreach (Stat stat in allStats)
-        {
-            Debug.Log("STAT " + stat.label + ": " + stat.GetValue());
-        }
-    }
+        double flatSum = 0f;
+        double percentSum = 0f;
+        double multiplierProduct = 1f;
 
-    public Stat GetStat(StatType type)
-    {
-        foreach (Stat stat in allStats)
+        // Change formula based on modifers
+        int flatMods = 0;
+        int percentMods = 0;
+        int multiplierMods = 0;
+
+        foreach (UpgradeInstance mod in UpgradesManager.instance.allUpgrades)
         {
-            if (stat.type == type)
+            if (mod.data.modifierType == ModifierType.FLAT)
             {
-                return stat;
+                flatMods++;
+            }
+            if (mod.data.modifierType == ModifierType.PERCENTAGE)
+            {
+                percentMods++;
+            }
+            if (mod.data.modifierType == ModifierType.MULTIPLIER)
+            {
+                multiplierMods++;
             }
         }
 
-        return null;
+        if (flatMods > 0)
+        {
+            return flatSum * (1f + percentSum / 100) * multiplierProduct;
+        }
+        if (flatMods < 1 && multiplierMods < 1 && percentMods > 0)
+        {
+            return percentSum;
+        }
+        if (flatMods < 1 && percentMods < 1 && multiplierMods > 0)
+        {
+            return multiplierProduct;
+        }
+        if (flatMods < 1 && percentMods > 0 && multiplierMods > 0)
+        {
+            return percentSum * multiplierProduct;
+        }
+
+        return 0;
     }
 }

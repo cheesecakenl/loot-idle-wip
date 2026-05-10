@@ -135,15 +135,20 @@ public class UIPotionsSeller : MonoBehaviour
         {
             PotionSellData sellData = potionsToSell[0];
 
-            Stat stat = StatsManager.instance.GetStat(sellData.potionData.valueStatType);
+            double sellValue = StatsManager.instance.GetValue(
+                sellData.potionData,
+                StatType.POTION_SELL_VALUE,
+                sellData.potionData.baseValue
+            );
 
-            double amount = sellData.potionData.baseValue + stat.GetValue();
+            //Stat stat = StatsManager.instance.GetStat(sellData.potionData.valueStatType);
+            //double amount = sellData.potionData.baseValue + stat.GetValue();
 
             AudioManager.instance.PlayFX(sellSfx);
 
-            GameEvents.Potion.OnPotionSold?.Invoke(amount);
+            GameEvents.Potion.OnPotionSold?.Invoke(sellValue);
 
-            Debug.Log($"Sold potion for {amount}");
+            Debug.Log($"Sold potion for {sellValue}");
 
             sellData.amount -= 1;
 

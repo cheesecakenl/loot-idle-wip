@@ -10,6 +10,8 @@ public class UpgradeData : ScriptableObject
     public string description;
     public double[] costs;
     public ModifierType modifierType;
+    [SerializeField, Tooltip("Choose which object is affected by this upgrade.")]
+    public GameData target;
     public double[] values;
     public int maxLevel = 0;
     public int unlockAtParentLevel = 1;
