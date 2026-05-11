@@ -2,9 +2,11 @@
 
 Idle/Clicker game to earn lots of money.
 
-## TODO
+## Story
 
 Create unique potion.
+
+## TODO
 
 Prestige points
 Prestige UI
@@ -19,3 +21,8 @@ Auto buy
 Auto brew
 Quests in skill tree. Like get 10 treasures to unlock node.
 Farm. Grow ingredients. Can grow multiple or golden version
+More involved brewing process
+
+## Known issues
+
+Dragging an ingredient through the flask trigger twice messes up the flask ingredient list and allows infinite potions.
