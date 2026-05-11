@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
 public class UIPotionsSeller : MonoBehaviour
@@ -143,8 +142,6 @@ public class UIPotionsSeller : MonoBehaviour
             GameEvents.Potion.OnPotionSold?.Invoke(potionSellPrice);
 
             PopupManager.instance.ShowAmountPopup(potionSellPrice, Color.greenYellow, Vector3.zero);
-
-            Debug.Log($"Sold potion for {potionSellPrice}");
 
             sellData.amount -= 1;
 

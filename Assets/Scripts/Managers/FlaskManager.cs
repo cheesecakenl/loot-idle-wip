@@ -80,10 +80,12 @@ public class FlaskManager : MonoBehaviour
 
     private void SpawnPotion(RecipeData recipe)
     {
+        Vector3 position = new Vector3(2.5f, 5f, 0f);
+
         int counter = 1;
         for (int i = 0; i < counter; i++)
         {
-            GameObject clone = Instantiate(recipe.resultPotion.prefab, Vector3.zero, Quaternion.identity);
+            GameObject clone = Instantiate(recipe.resultPotion.prefab, position, Quaternion.identity);
             Potion potion = clone.GetComponent<Potion>();
             potion.Init(recipe.resultPotion);
         }

@@ -97,7 +97,9 @@ public class UIShopManager : MonoBehaviour
 
     private void SpawnIngredient(IngredientData data)
     {
-        GameObject clone = Instantiate(data.prefab, Vector3.zero, Quaternion.identity);
+        Vector3 position = new Vector3(-3.5f, 5f, 0f);
+
+        GameObject clone = Instantiate(data.prefab, position, Quaternion.identity);
         Ingredient ingredient = clone.GetComponent<Ingredient>();
         ingredient.Init(data);
     }
