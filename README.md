@@ -26,3 +26,4 @@ More involved brewing process
 ## Known issues
 
 Dragging an ingredient through the flask trigger twice messes up the flask ingredient list and allows infinite potions.
+Sell first placed potion first in shop. Now it sells last picked up.
